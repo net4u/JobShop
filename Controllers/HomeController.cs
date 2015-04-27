@@ -19,21 +19,6 @@ namespace JobShop.Controllers
         //public ActionResult Index()
         //new implementation
         private JobShopEntities db = new JobShopEntities();
-        //Repository _repository = new Repository(); 
-
-        public ActionResult ViewModel()
-        {
-            HomePageModel vm = new HomePageModel();
-            var jobs = db.Jobs.Include(j => j.AspNetUsers);
-            var candidates = db.Candidates.Include(j => j.AspNetUsers);
-            vm.allJobs = jobs.ToList();
-            //vm.allJobs = _repository.GetCourses();
-            vm.allCandidates = candidates.ToList();
-            //vm.allUsers = _repository.GetStudents();
-
-            return View(vm);
-        }  
-
 
 
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)

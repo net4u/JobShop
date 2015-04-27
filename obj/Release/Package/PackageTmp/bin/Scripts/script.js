@@ -508,29 +508,29 @@ $('.accordion').each(function () {
 
 // Progress Bar
 // ---------------------------------------------------------
-$('.job-progress-bar').each(function () {
+$('.progress-bar').each(function () {
 
 	var $this = $(this),
 		progress = $this.data('progress');
 
 	if (!$this.hasClass('no-animation')) {
 		$this.one('inview', function () {
-			$this.children('.job-progress-bar-inner').children('span').css('width', progress + '%');
+			$this.children('.progress-bar-inner').children('span').css('width', progress + '%');
 		});
 	} else {
-		$this.children('.job-progress-bar-inner').children('span').css('width', progress + '%');
+		$this.children('.progress-bar-inner').children('span').css('width', progress + '%');
 	}
 
 	if ($this.hasClass('toggle')) {
-		$this.children('.job-progress-bar-toggle').on('click', function (event) {
+		$this.children('.progress-bar-toggle').on('click', function (event) {
 			event.preventDefault();
 
 			if (!$this.hasClass('active')) {
-				$this.children('.job-progress-bar-content').slideDown(250, function () {
+				$this.children('.progress-bar-content').slideDown(250, function () {
 					$this.addClass('active');
 				});
 			} else {
-				$this.children('.job-progress-bar-content').slideUp(250, function () {
+				$this.children('.progress-bar-content').slideUp(250, function () {
 					$this.removeClass('active');
 				});
 			}
@@ -1063,37 +1063,6 @@ if ($.fn.flexslider && $('.compare-price-slider').length > 0) {
 	});
 }
 
-
-
-
-
-function getHelp() {
-	$.ajax({
-		url: '@Url.Action("GetHelp")',
-		dataType: "json",
-		type: "POST",
-		success: function (result) {
-			$("#helpContent").empty().append(result);
-			$("#helpContent").show();
-			$("#helpTrigger").removeClass("helpTrigger")
-				.addClass("closeTrigger");
-			$("#helpTrigger").unbind("click");
-			$("#helpTrigger").click(closeHelp);
-		}
-	});
-}
-
-function closeHelp() {
-	$("#helpContent").empty();
-	$("#helpContent").hide();
-	$("#helpTrigger").removeClass("closeTrigger")
-		.addClass("helpTrigger");
-	$("#helpTrigger").unbind("click");
-	$("#helpTrigger").click(getHelp);
-}
-
-
-
 $(window).load(function () {
 
 	// Add body loaded class for fade transition
@@ -1108,10 +1077,33 @@ function addClassWhenLoaded() {
 	}
 }
 
+//Various Fuunctions
+//--------------------------------------------------------------
 
+function getHelp() {
+    $.ajax({
+        url: '@Url.Action("GetHelp")',
+        dataType: "json",
+        type: "POST",
+        success: function (result) {
+            $("#helpContent").empty().append(result);
+            $("#helpContent").show();
+            $("#helpTrigger").removeClass("helpTrigger")
+				.addClass("closeTrigger");
+            $("#helpTrigger").unbind("click");
+            $("#helpTrigger").click(closeHelp);
+        }
+    });
+}
 
-
-
+function closeHelp() {
+    $("#helpContent").empty();
+    $("#helpContent").hide();
+    $("#helpTrigger").removeClass("closeTrigger")
+		.addClass("helpTrigger");
+    $("#helpTrigger").unbind("click");
+    $("#helpTrigger").click(getHelp);
+}
 
 
 

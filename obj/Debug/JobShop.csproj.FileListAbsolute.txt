@@ -295,4 +295,3 @@ C:\Users\Laurentiu\Documents\Visual Studio 2013\Projects\JobShop\JobShop\bin\Mic
 C:\Users\Laurentiu\Documents\Visual Studio 2013\Projects\JobShop\JobShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Laurentiu\Documents\Visual Studio 2013\Projects\JobShop\JobShop\obj\Debug\JobShop.dll
 C:\Users\Laurentiu\Documents\Visual Studio 2013\Projects\JobShop\JobShop\obj\Debug\JobShop.pdb
-C:\Users\Laurentiu\Documents\Visual Studio 2013\Projects\JobShop\JobShop\obj\Debug\JobShop.csprojResolveAssemblyReference.cache

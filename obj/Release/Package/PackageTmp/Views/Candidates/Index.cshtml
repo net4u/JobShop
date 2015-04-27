@@ -165,13 +165,13 @@
 
                                         foreach (var canSkills in item.CandidateSkills)
                                         {
-                                        <div class="job-progress-bar toggle" data-progress="@canSkills.Level">
+                                        <div class="progress-bar toggle" data-progress="@canSkills.Level"> @*Why s not progress-bar and is job-progress-bar ?!*@
                                             <!--Here comes item.value-->
-                                            <a href="" class="job-progress-bar-toggle"></a>
-                                            <h6 class="job-progress-bar-title">@canSkills.Title</h6>
+                                            <a href="" class="progress-bar-toggle"></a>
+                                            <h6 class="progress-bar-title">@canSkills.Title</h6>
                                             <p>Nivel Competenta: @canSkills.Level</p>
-                                            <div class="job-progress-bar-inner"><span style="width:@canSkills.Level%;"></span></div>
-                                            <div class="job-progress-bar-content">@canSkills.Description</div>
+                                            <div class="progress-bar-inner"><span style="width:@canSkills.Level%;"></span></div>
+                                            <div class="progress-bar-content">@canSkills.Description</div>
                                         </div>
                                         }
                                     }

@@ -223,12 +223,14 @@
       <DependentUpon>JobShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
     <Compile Include="Controllers\CandidateEducationsController.cs" />
     <Compile Include="Controllers\CandidateExperiencesController.cs" />
     <Compile Include="Controllers\CandidateReqsController.cs" />
     <Compile Include="Controllers\CandidatesController.cs" />
     <Compile Include="Controllers\CandidateSkillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SliderCandidatesController.cs" />
     <Compile Include="Controllers\SliderJobsController.cs" />
@@ -265,7 +267,7 @@
     </Compile>
     <Compile Include="Controllers\JobSkillsController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="ViewModels\HomePageModel.cs" />
+    <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1055,30 +1057,12 @@
       <SubType>Code</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Shared\SliderCandidates.cshtml" />
-    <Content Include="Views\Shared\SliderJobs.cshtml" />
-    <Content Include="Views\Shared\LatestCandidates.cshtml" />
-    <Content Include="Views\Shared\LatestJobs.cshtml" />
-    <Content Include="Views\ViewCandidates\Create.cshtml" />
-    <Content Include="Views\ViewCandidates\Delete.cshtml" />
-    <Content Include="Views\ViewCandidates\Details.cshtml" />
-    <Content Include="Views\ViewCandidates\Edit.cshtml" />
-    <Content Include="Views\ViewCandidates\Index.cshtml" />
-    <Content Include="Views\ViewJobs\Create.cshtml" />
-    <Content Include="Views\ViewJobs\Delete.cshtml" />
-    <Content Include="Views\ViewJobs\Details.cshtml" />
-    <Content Include="Views\ViewJobs\Edit.cshtml" />
-    <Content Include="Views\ViewJobs\Index.cshtml" />
-    <Content Include="Views\SliderCandidates\Create.cshtml" />
-    <Content Include="Views\SliderCandidates\Delete.cshtml" />
-    <Content Include="Views\SliderCandidates\Details.cshtml" />
-    <Content Include="Views\SliderCandidates\Edit.cshtml" />
-    <Content Include="Views\SliderCandidates\Index.cshtml" />
-    <Content Include="Views\SliderJobs\Create.cshtml" />
-    <Content Include="Views\SliderJobs\Delete.cshtml" />
-    <Content Include="Views\SliderJobs\Details.cshtml" />
-    <Content Include="Views\SliderJobs\Edit.cshtml" />
-    <Content Include="Views\SliderJobs\Index.cshtml" />
+    <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

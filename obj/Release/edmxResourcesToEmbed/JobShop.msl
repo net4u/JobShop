@@ -75,6 +75,7 @@
     <EntitySetMapping Name="Jobs">
       <EntityTypeMapping TypeName="JobShopModel.Jobs">
         <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Localitate" ColumnName="Localitate" />
           <ScalarProperty Name="IdJob" ColumnName="IdJob" />

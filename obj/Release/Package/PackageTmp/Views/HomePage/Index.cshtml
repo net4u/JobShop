@@ -1,0 +1,184 @@
+﻿@using JobShop.Models;
+@model dynamic 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ViewBag.Message</h2>
+<p><b>Header Banner</b></p>
+<div class="header-banner">
+    <div class="container">
+        <div class="row">
+            <!--Here comes the jobs view-->
+            <div class="header-banner">
+                <div class="container">
+                    <div class="row">
+                        @*Latest Jobs*@
+                        <div class="col-sm-6">
+                            <div class="header-banner-box register">
+                                <div>
+                                    <h5>Pentru candidati</h5>
+                                </div>
+                                <div class="counter-container">
+                                    <div>
+                                        <h5>Acum sunt: </h5>
+                                    </div>
+                                    @if (Model.Jobs.Count > 0)
+                                    {
+                                        <ul class="counter clearfix">
+                                            @{
+                                        string str = Model.Jobs.Count.ToString();
+                                        foreach (var TheDigit in str)
+                                        {
+                                            <li>@TheDigit</li>}
+                                            }
+                                        </ul>
+                                    }
+                                    <div>
+                                        <span>Joburi</span>
+                                    </div>
+                                </div>
+                                <a class="btn btn-default" href="register.cshtml">Inregistreaza-te</a>
+                            </div>
+                        </div>
+
+                        <!--Here comes the candidates view-->
+                        <div class="col-sm-6">
+                            <div class="header-banner-box post-job">
+                                <div>
+                                    <h5>Pentru angajatori</h5>
+                                </div>
+                                <div class="counter-container">
+                                    <div>
+                                        <h5>Acum sunt: </h5>
+                                    </div>
+                                    @if (Model.Candidates.Count > 0)
+                                    {
+                                        <ul class="counter clearfix">
+                                            @{
+
+                                        string str = Model.Candidates.Count.ToString();
+                                        foreach (var TheDigit in str)
+                                        {
+                                            <li>@TheDigit</li>}
+                                            }
+                                        </ul>
+                                    }
+                                    <div>
+                                        <span>Candidati</span>
+                                    </div>
+                                </div>
+                                <img alt="" src="images/verified.png">
+                                <a class="btn btn-default btn-red" href="#">Posteaza un Job</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+<p><b>Jobs Slider</b></p>
+
+            <div class="title-lines">
+                <h3>Cele mai noi joburi: <span>@Model.Jobs.Count</span></h3>
+            </div>
+
+            <div class="latest-jobs-section white-container">
+                <div class="flexslider clearfix">
+
+                    <!--db feeded slider-->
+                    @if (Model.Jobs.Count > 0)
+                    {
+                        <ul class="slides">
+                            @{
+                        foreach (var item in Model.Jobs)
+                        {
+                            <li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; display: block; z-index: 1; opacity: 0;">
+                                <div class="image">
+                                    <img alt="" draggable="false" src="@item.ImageSRC">
+                                    <a class="btn btn-default fa fa-search" href="#"></a>
+                                    <!--<a class="btn btn-default fa fa-link" href="#"></a>-->
+                                    <!--Link to detail-->
+                                    @Html.ActionLink(" ...", "Details", "Jobs", new { id = item.IdJob }, new { @class = "btn btn-default fa fa-link" })
+
+                                </div>
+                                <div class="content">
+                                    <h6>@item.Titlu</h6>
+                                    <span class="location">@item.WhereWhat</span>
+                                    <p>@item.Content</p>
+                                </div>
+
+                            </li>
+                        }
+                            }
+                        </ul>
+                    }
+                    else
+                    {<p style="color: red">Sorry ! No job(s) record(s) found.</p>}
+
+                </div>
+            </div>
+
+
+<p><b>Candidates Slider</b></p>
+
+            <div class="title-lines">
+                <h3>Cei mai noi candidati: <span>@Model.Candidates.Count</span></h3>
+            </div>
+
+            <div class="latest-jobs-section white-container">
+                <div class="flexslider clearfix">
+
+                    <!--db feeded slider-->
+                    @if (Model.Candidates.Count > 0)
+                    {
+                        <ul class="slides">
+                            @{int i = 1;
+
+                            foreach (var item in Model.Candidates)
+                            {
+                                <li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; display: block; z-index: 1; opacity: 0;">
+                                    <div class="image">
+                                        <img alt="" draggable="false" src="@item.ImageSRC">
+                                        <a class="btn btn-default fa fa-search" href="#"></a>
+                                        <a class="btn btn-default fa fa-link" href="#"></a>
+                                        @Html.ActionLink(" ...", "Details", "Candidates", new { id = item.IdCV }, new { @class = "btn btn-default fa fa-link" })
+                                    </div>
+                                    <div class="content">
+                                        <h6>@item.Titlu</h6>
+                                        <span class="location">@item.WhereWhat</span>
+                                        <p>@item.Content</p>
+                                    </div>
+
+                                </li>
+                            }
+                            }
+                        </ul>
+                    }
+                    else
+                    {<p style="color: red">Sorry ! No candidate(s) record(s) found.</p>}
+
+                </div>
+            </div>
+
+
+<p><b>Users List</b></p>
+            <table>
+                <tr>
+                    <th>Picture</th>
+                    <th>Nume</th>
+                    <th>Prenume</th>
+                </tr>
+                @foreach (AspNetUsers AspNetUser in Model.AspNetUsers)
+                {
+                    <tr>
+                        <td>@AspNetUser.ThumbURL</td>
+                        <td>@AspNetUser.Name</td>
+                        <td>@AspNetUser.Surname</td>
+                    </tr>
+                }
+            </table>

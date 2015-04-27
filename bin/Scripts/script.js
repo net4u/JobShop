@@ -1063,37 +1063,6 @@ if ($.fn.flexslider && $('.compare-price-slider').length > 0) {
 	});
 }
 
-
-
-
-
-function getHelp() {
-	$.ajax({
-		url: '@Url.Action("GetHelp")',
-		dataType: "json",
-		type: "POST",
-		success: function (result) {
-			$("#helpContent").empty().append(result);
-			$("#helpContent").show();
-			$("#helpTrigger").removeClass("helpTrigger")
-				.addClass("closeTrigger");
-			$("#helpTrigger").unbind("click");
-			$("#helpTrigger").click(closeHelp);
-		}
-	});
-}
-
-function closeHelp() {
-	$("#helpContent").empty();
-	$("#helpContent").hide();
-	$("#helpTrigger").removeClass("closeTrigger")
-		.addClass("helpTrigger");
-	$("#helpTrigger").unbind("click");
-	$("#helpTrigger").click(getHelp);
-}
-
-
-
 $(window).load(function () {
 
 	// Add body loaded class for fade transition
@@ -1108,10 +1077,33 @@ function addClassWhenLoaded() {
 	}
 }
 
+//Various Fuunctions
+//--------------------------------------------------------------
 
+function getHelp() {
+    $.ajax({
+        url: '@Url.Action("GetHelp")',
+        dataType: "json",
+        type: "POST",
+        success: function (result) {
+            $("#helpContent").empty().append(result);
+            $("#helpContent").show();
+            $("#helpTrigger").removeClass("helpTrigger")
+				.addClass("closeTrigger");
+            $("#helpTrigger").unbind("click");
+            $("#helpTrigger").click(closeHelp);
+        }
+    });
+}
 
-
-
+function closeHelp() {
+    $("#helpContent").empty();
+    $("#helpContent").hide();
+    $("#helpTrigger").removeClass("closeTrigger")
+		.addClass("helpTrigger");
+    $("#helpTrigger").unbind("click");
+    $("#helpTrigger").click(getHelp);
+}
 
 
 

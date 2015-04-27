@@ -104,6 +104,7 @@
     <NavigationProperty Name="JobSkills" Relationship="Self.JobSkills_fk" FromRole="Jobs" ToRole="JobSkills" />
     <Property Name="Localitate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="JobSkills">
     <Key>

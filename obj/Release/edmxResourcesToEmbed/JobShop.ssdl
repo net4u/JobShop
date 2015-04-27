@@ -157,6 +157,7 @@
     <Property Name="User" Type="nvarchar" MaxLength="128" />
     <Property Name="DateAdd" Type="date" />
     <Property Name="ImageSRC" Type="nvarchar(max)" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
     <Property Name="Titlu" Type="nchar" MaxLength="64" />
     <Property Name="WhereWhat" Type="nchar" MaxLength="128" />
     <Property Name="Description" Type="nvarchar(max)" />
