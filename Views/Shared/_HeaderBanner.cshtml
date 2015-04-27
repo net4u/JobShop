@@ -3,25 +3,27 @@
         <div class="row">
             <!--Here comes the jobs view-->
             @*Latest Jobs*@
-            @Html.Partial("~/Views/Shared/LatestJobs.cshtml")
-            @*
-                    @Html.Partial("ViewJobs")
+            
+                        @*
+                    @Html.Partial("~/Views/Shared/LatestJobs.cshtml", new JobShop.Models.HomePageModel())
+                @Html.Partial("ViewJobs")
                     @Html.Partial("~/Views/ViewJobs/Index.cshtml")
                     @Html.Partial("~/Views/ViewJobs/Index.cshtml", new JobShop.Jobs { IdJob = Model.IdJob })
                     @Html.Partial("~/Views/Shared/LatestJobs.cshtml", new JobShop.Jobs { IdJob = Model.IdJob })
         @Html.Partial("~/Views/Shared/LatestJobs.cshtml")
-            *@
+                        *@
             
             <!--Here comes the candidates view-->
             @*Latest Candidates*@
-            @Html.Partial("~/Views/Shared/LatestCandidates.cshtml")
-                        @*
-        @Html.Partial("ViewCandidates")
-        @Html.Partial("~/Views/ViewCandidates/Index.cshtml")
-        @Html.Partial("~/Views/ViewCandidates/Index.cshtml", new JobShop.Candidates { IdCV = Model.IdCV })
-        @Html.Partial("~/Views/Shared/LatestCandidates.cshtml", new JobShop.Candidates { IdCV = Model.IdCV })
-            @Html.Partial("~/Views/Shared/LatestCandidates.cshtml")
-                        *@
+            
+                                    @*
+        @Html.Partial("~/Views/Shared/LatestCandidates.cshtml", new JobShop.Models.HomePageModel())
+                @Html.Partial("ViewCandidates")
+                @Html.Partial("~/Views/ViewCandidates/Index.cshtml")
+                @Html.Partial("~/Views/ViewCandidates/Index.cshtml", new JobShop.Candidates { IdCV = Model.IdCV })
+                @Html.Partial("~/Views/Shared/LatestCandidates.cshtml", new JobShop.Candidates { IdCV = Model.IdCV })
+                    @Html.Partial("~/Views/Shared/LatestCandidates.cshtml")
+                                    *@
         </div>
     </div>
 </div>

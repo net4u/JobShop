@@ -182,8 +182,8 @@
                     *@
                     @if (Model.Count() > 0)
                     {
-                        <div>
-                            @{int i = 1;
+                        
+                            {int i = 1;
                             foreach (var item in Model)
                             {
                                 <div class="jobs-item with-thumb effect7 bordered @(i++ % 2 == 0 ? "highlighted" : "")">
@@ -218,23 +218,23 @@
                                         <h5>Competente Necesare</h5>
                                         @if (item.JobSkills.Count > 0)
                                         {
-                                            <div>
-                                                <!--Was: style="color:black"-->
-                                                @{int j = 1;
+                                            
+                                                
+                                                {int j = 1;
 
                                                 foreach (var jobSkills in item.JobSkills)
                                                 {
-                                                    <div class="job-progress-bar toggle" data-progress="@jobSkills.Level">
+                                                    <div class="progress-bar toggle" data-progress="@jobSkills.Level"> @*Why s not progress-bar and is job-progress-bar ?!*@
                                                         <!--Here comes item.value-->
-                                                        <a href="" class="job-progress-bar-toggle"></a>
-                                                        <h6 class="job-progress-bar-title">@jobSkills.Title</h6>
+                                                        <a href="" class="progress-bar-toggle"></a>
+                                                        <h6 class="progress-bar-title">@jobSkills.Title</h6>
                                                         <p>Nivel Competenta: @jobSkills.Level</p>
-                                                        <div class="job-progress-bar-inner"><span style="width:@jobSkills.Level%;"></span></div>
-                                                        <div class="job-progress-bar-content">@jobSkills.Description</div>
+                                                        <div class="progress-bar-inner"><span style="width:@jobSkills.Level%;"></span></div>
+                                                        <div class="progress-bar-content">@jobSkills.Description</div>
                                                     </div>
                                                 }
                                                 }
-                                            </div>
+                                            
                                         }
                                         else
                                         {<p style="color: red">Scuze! Nu am gasit competente</p>}
@@ -272,7 +272,8 @@
                                 </div>
                             }
                             }
-                        </div>
+                        
+    
 
                     }
                     else

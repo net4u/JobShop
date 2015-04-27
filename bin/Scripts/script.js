@@ -508,29 +508,29 @@ $('.accordion').each(function () {
 
 // Progress Bar
 // ---------------------------------------------------------
-$('.job-progress-bar').each(function () {
+$('.progress-bar').each(function () {
 
 	var $this = $(this),
 		progress = $this.data('progress');
 
 	if (!$this.hasClass('no-animation')) {
 		$this.one('inview', function () {
-			$this.children('.job-progress-bar-inner').children('span').css('width', progress + '%');
+			$this.children('.progress-bar-inner').children('span').css('width', progress + '%');
 		});
 	} else {
-		$this.children('.job-progress-bar-inner').children('span').css('width', progress + '%');
+		$this.children('.progress-bar-inner').children('span').css('width', progress + '%');
 	}
 
 	if ($this.hasClass('toggle')) {
-		$this.children('.job-progress-bar-toggle').on('click', function (event) {
+		$this.children('.progress-bar-toggle').on('click', function (event) {
 			event.preventDefault();
 
 			if (!$this.hasClass('active')) {
-				$this.children('.job-progress-bar-content').slideDown(250, function () {
+				$this.children('.progress-bar-content').slideDown(250, function () {
 					$this.addClass('active');
 				});
 			} else {
-				$this.children('.job-progress-bar-content').slideUp(250, function () {
+				$this.children('.progress-bar-content').slideUp(250, function () {
 					$this.removeClass('active');
 				});
 			}

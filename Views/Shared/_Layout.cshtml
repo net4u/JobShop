@@ -230,12 +230,15 @@
             @Html.Partial("_HeaderPageTitle")
         </header>
         <!--Here start the content of rendered page(s)-->
+        
+                                        @*
+        @Html.Partial("~/Views/SliderJobs/Index.cshtml")
+                @Html.Partial("~/Views/SliderCandidates/Index.cshtml")
 
-                                @*
-        @Html.Partial("JobsSlider")
-        @Html.Partial("CandidatesSlider")
+                @Html.Partial("JobsSlider")
+                @Html.Partial("CandidatesSlider")
 
-                                *@
+                                        *@
         
         @RenderBody()
 
