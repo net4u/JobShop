@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThumbURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThumbImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GooglePlus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dribble" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pinterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkedIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Favorited" Type="Boolean" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Candidates" Relationship="Self.Candidates_fk" FromRole="AspNetUsers" ToRole="Candidates" />
+    <NavigationProperty Name="Jobs" Relationship="Self.Jobs_fk" FromRole="AspNetUsers" ToRole="Jobs" />
+  </EntityType>
+  <EntityType Name="Candidates">
+    <Key>
+      <PropertyRef Name="IdCV" />
+    </Key>
+    <Property Name="IdCV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Experienta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdd" Type="DateTime" Precision="0" />
+    <Property Name="ImageSRC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Titlu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WhereWhat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Solicitare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Orar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinSal" Type="Double" />
+    <Property Name="MaxSal" Type="Double" />
+    <Property Name="Localitate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Latitudine" Type="Double" />
+    <Property Name="Longitudine" Type="Double" />
+    <Property Name="DateStart" Type="DateTime" Precision="0" />
+    <Property Name="DateEnd" Type="DateTime" Precision="0" />
+    <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.Candidates_fk" FromRole="Candidates" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="IdJob" />
+    </Key>
+    <Property Name="IdJob" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdWho" Type="Int32" />
+    <Property Name="User" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateAdd" Type="DateTime" Precision="0" />
+    <Property Name="ImageSRC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Titlu" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+    <Property Name="WhereWhat" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Solicitare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateStart" Type="DateTime" Precision="0" />
+    <Property Name="DateEnd" Type="DateTime" Precision="0" />
+    <Property Name="Orar" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Localitate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Latitudine" Type="Double" />
+    <Property Name="Longitudine" Type="Double" />
+    <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.Jobs_fk" FromRole="Jobs" ToRole="AspNetUsers" />
+  </EntityType>
+  <Association Name="Candidates_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidates">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Jobs_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="babysitterEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Candidates" EntityType="Self.Candidates" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" />
+    <AssociationSet Name="Candidates_fk" Association="Self.Candidates_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Candidates" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="Jobs_fk" Association="Self.Jobs_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

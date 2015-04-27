@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
+    <Property Name="Country" Type="int" />
+    <Property Name="Website" Type="nvarchar(max)" />
+    <Property Name="ThumbURL" Type="nvarchar(max)" />
+    <Property Name="ThumbImg" Type="image" />
+    <Property Name="Facebook" Type="nvarchar(max)" />
+    <Property Name="Twitter" Type="nvarchar(max)" />
+    <Property Name="GooglePlus" Type="nvarchar(max)" />
+    <Property Name="Dribble" Type="nvarchar(max)" />
+    <Property Name="Pinterest" Type="nvarchar(max)" />
+    <Property Name="LinkedIn" Type="nvarchar(max)" />
+    <Property Name="Favorited" Type="bit" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="BirthDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Candidates">
+    <Key>
+      <PropertyRef Name="IdCV" />
+    </Key>
+    <Property Name="IdCV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="128" />
+    <Property Name="Experienta" Type="varchar(max)" />
+    <Property Name="DateAdd" Type="date" />
+    <Property Name="ImageSRC" Type="nvarchar(max)" />
+    <Property Name="Titlu" Type="nvarchar(max)" />
+    <Property Name="WhereWhat" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Solicitare" Type="nvarchar(max)" />
+    <Property Name="Orar" Type="nvarchar(max)" />
+    <Property Name="MinSal" Type="float" />
+    <Property Name="MaxSal" Type="float" />
+    <Property Name="Localitate" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Latitudine" Type="float" />
+    <Property Name="Longitudine" Type="float" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+    <Property Name="Region" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="IdJob" />
+    </Key>
+    <Property Name="IdJob" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdWho" Type="int" />
+    <Property Name="User" Type="nvarchar" MaxLength="128" />
+    <Property Name="DateAdd" Type="date" />
+    <Property Name="ImageSRC" Type="nvarchar(max)" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="Titlu" Type="nchar" MaxLength="64" />
+    <Property Name="WhereWhat" Type="nchar" MaxLength="128" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Solicitare" Type="nvarchar(max)" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+    <Property Name="Orar" Type="nvarchar" MaxLength="30" />
+    <Property Name="Localitate" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Latitudine" Type="float" />
+    <Property Name="Longitudine" Type="float" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Region" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="Candidates_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidates">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Jobs_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobShopModelStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Candidates_fk" Association="Self.Candidates_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Candidates" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="Jobs_fk" Association="Self.Jobs_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

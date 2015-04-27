@@ -1,0 +1,393 @@
+﻿@*@model IEnumerable<JobShop.Candidates>*@
+
+@model PagedList.IPagedList<JobShop.Candidates>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Lista Candidatilor Disponibili";
+}
+<!--
+<div class="header-page-title">
+    <div class="container">
+        <h3>Available Candidates Listing</h3>
+    </div>
+</div>
+-->
+<div id="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 page-sidebar">
+                <aside>
+                    <div class="white-container mb0 effect7 ">
+                        <div class="widget sidebar-widget jobs-search-widget">
+                            <br />
+                            <h5 class="widget-title">Caut un...</h5>
+                            <div class="widget-content">
+                                <span>Gaseste dupa termenul specificat:</span>
+                                @using (Html.BeginForm("Index", "Candidates", FormMethod.Get))
+                                {
+                                      <div id="SearchPanel">
+                                                <p>
+                                                     @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Cauti un titlu?" })
+                                                </p>
+                                                <p>
+                                                    <input type="text" class="form-control" placeholder="Locatie">
+                                                </p>
+                                                <p>
+                                                    <input type="text" class="form-control" placeholder="Industry / Role">
+                                                </p>
+                                                <p>
+                                                    <input type="submit" class="btn btn-default btn-block" value="Cauta">
+                                                </p>
+                                                <p>
+                                                    <input type="submit" class="btn btn-default btn-block" value="Arata tot" />
+                                                </p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="widget sidebar-widget jobs-search-widget">
+                            <h5 class="widget-title">Filtreaza Rezultatele</h5>
+                            <div class="widget-content">
+                                <h6>Dupa Regiune</h6>
+                                <div>
+                                    <ul class="filter-list">
+                                        <li class="has-submenu">
+                                            <a href="#">Asia <span>(1234)</span></a>
+                                            <ul>
+                                                <li class="has-submenu">
+                                                    <a href="#">Asia <span>(1234)</span></a>
+                                                    <ul>
+                                                        <li><a href="#">Asia <span>(1234)</span></a></li>
+                                                        <li><a href="#">Africa <span>(5678)</span></a></li>
+                                                        <li><a href="#">Europe <span>(910)</span></a></li>
+                                                        <li><a href="#">North America <span>(347)</span></a></li>
+                                                        <li><a href="#">Central America <span>(52)</span></a></li>
+                                                        <li><a href="#">South America <span>(117)</span></a></li>
+                                                        <li><a href="#">Oceania <span>(736)</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Africa <span>(5678)</span></a></li>
+                                                <li><a href="#">Europe <span>(910)</span></a></li>
+                                                <li><a href="#">North America <span>(347)</span></a></li>
+                                                <li><a href="#">Central America <span>(52)</span></a></li>
+                                                <li><a href="#">South America <span>(117)</span></a></li>
+                                                <li><a href="#">Oceania <span>(736)</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Africa <span>(5678)</span></a></li>
+                                        <li><a href="#">Europe <span>(910)</span></a></li>
+                                        <li><a href="#">North America <span>(347)</span></a></li>
+                                        <li><a href="#">Central America <span>(52)</span></a></li>
+                                        <li><a href="#">South America <span>(117)</span></a></li>
+                                        <li><a href="#">Oceania <span>(736)</span></a></li>
+                                    </ul>
+                                    <a href="#" class="toggle"></a>
+                                </div>
+                                <h6>Dupa Industrie</h6>
+                                <div>
+                                     <ul class="filter-list">
+
+
+                                     </ul>
+                                </div>
+                                <h6>Dupa Tip</h6>
+                                <div>
+                                    <ul class="filter-list">
+
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                </div>
+                    <!--Here comes the result grid-->
+                    <div class="col-sm-8 page-content">
+                        <div class="title-lines">
+                            <h3 class="mt0">Candidati Disponibili: <span>@Model.TotalItemCount liberi</span></h3>
+                        </div>
+                        <div class="clearfix mb30">
+                            <ul class="candidates-view-toggle pull-left">
+                                <li><a href="#" data-layout="with-thumb" class="btn btn-gray fa fa-th-list active"></a></li>
+                                <li><a href="#" data-layout="" class="btn btn-gray fa fa-list"></a></li>
+                                <li><a href="#" data-layout="compact" class="btn btn-gray fa fa-align-justify"></a></li>
+                            </ul>
+                            <select class="form-control pull-left">
+                                <option value="">Sorteaza dupa</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select>
+                            <br />
+                            <hr />
+
+                            Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) din @Model.PageCount
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+                        </div>
+
+                        @if (Model.Count() > 0)
+                {
+                <div>
+                    @{int i = 1;
+                        foreach (var item in Model)
+                        {<div class="candidates-item effect7 @(i++ % 2 == 0 ? "highlighted" : "")">
+                            <div class="thumb">
+                                <img src="@item.ImageSRC" width="88" height="88" alt="">
+                            </div>
+                            <div class="clearfix visible-xs"></div>
+                            <div class="date"><strong>Adaugat pe:</strong><span>@item.DateAdd.ToString()</span></div>
+                            <h6 class="title"><strong>Titlu:</strong> @item.Titlu</h6>
+                            <span class="meta"><strong>Unde:</strong> @item.WhereWhat</span>
+                            <p class="address"><strong>Adresa:</strong> @item.Address</p>
+                            <p class="description"><strong>Descriere:</strong> @item.Description</p>
+                            <p class=""><strong>Solicitari: </strong>@item.Solicitare</p>
+                            
+
+                            <ul class="top-btns">
+                                <li><a href="" class="btn btn-gray fa fa-plus toggle"></a></li>
+                                <li><a href="" class="btn btn-gray fa fa-star"></a></li>
+                                <li><a href="" class="btn btn-gray fa fa-link"></a></li>
+                                @Html.ActionLink(" Detalii...", "Details", "Candidates", new { id = item.IdCV }, new { @class = "btn btn-default fa fa-link" })
+                            </ul>
+                            <div class="content" style="display:block">
+                                <p><strong>Continut: </strong>@item.Content ...</p>
+                                <!--Extra details like skills and requirements-->
+                                <!--Bucla de for pentru Skills-->
+                                <h5>Competente</h5>
+                                @if (item.CandidateSkills.Count() > 0)
+                                {
+                                <div style="color:black">
+                                    @{int j = 1;
+
+                                        foreach (var canSkills in item.CandidateSkills)
+                                        {
+                                        <div class="job-progress-bar toggle" data-progress="@canSkills.Level">
+                                            <!--Here comes item.value-->
+                                            <a href="" class="job-progress-bar-toggle"></a>
+                                            <h6 class="job-progress-bar-title">@canSkills.Title</h6>
+                                            <p>Nivel Competenta: @canSkills.Level</p>
+                                            <div class="job-progress-bar-inner"><span style="width:@canSkills.Level%;"></span></div>
+                                            <div class="job-progress-bar-content">@canSkills.Description</div>
+                                        </div>
+                                        }
+                                    }
+                                </div>
+                                }
+                                else
+                                {<p style="color: red">Scuze! Nu am gasit competente</p>}
+                                <!--Bucla de for pentru requirements-->
+                                <hr />
+                                <h5>Cerinte Aditionale</h5>
+                                @if (item.CandidateReq.Count() > 0)
+                                {
+                                <ul class="additional-requirements clearfix">
+                                    @{int k = 1;
+
+                                        foreach (var canReq in item.CandidateReq)
+                                        {
+                                        <li>@canReq.Requirement</li>
+                                        }
+                                    }
+
+                                </ul>
+
+                                }
+                                else
+                                {<p style="color: red">Scuze! Nu am gasit cerinte aditionale.</p> }
+                                <!--Bucla de for pentru education-->
+                                <hr />
+                                <h5>Educatie</h5>
+                                @if (item.CandidateEducation.Count() > 0)
+                                {
+                                <ul class="additional-requirements clearfix">
+                                    @{int k = 1;
+
+                                        foreach (var canEd in item.CandidateEducation)
+                                        {
+                                        <li>@canEd.Description</li>
+                                        }
+                                    }
+
+                                </ul>
+
+                                }
+                                else
+                                {<p style="color: red">Scuze! Nu am gasit cerinte aditionale.</p> }
+                                <!--Bucla de for pentru education-->
+                                <hr />
+                                <!--Bucla de for pentru experience-->
+                                <h5>Experienta</h5>
+                                @if (item.CandidateExperience.Count() > 0)
+                                {
+                                <ul class="additional-requirements clearfix">
+                                    @{int k = 1;
+
+                                        foreach (var canEx in item.CandidateExperience)
+                                        {
+                                        <li>@canEx.Description</li>
+                                        }
+                                    }
+
+                                </ul>
+
+                                }
+                                else
+                                {<p style="color: red">Scuze! Nu am gasit cerinte aditionale.</p> }
+                                <!--Bucla de for pentru education-->
+                                <hr />
+
+                            </div>
+
+                            <div class="clearfix">
+                                <a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contacteaza Candidatul</a>
+                                <ul class="social-icons pull-right">
+                                    <li><span>Share</span></li>
+                                    <li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+                                    <li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+                                    <li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        }
+                    }
+                </div>
+
+                }
+                else
+                {<p style="color: red">Scuze! Nu am gasit cerinte aditionale.</p>}
+
+                        <!--
+                    <div class="candidates-item">
+                        <div class="thumb"><img src="./candidates-listings_files/face-0.png" alt=""></div>
+                        <h6 class="title"><a href="http://188.226.173.21/html/careers/candidates.html#">John Doe</a></h6>
+                        <span class="meta">24 Years Old - Sydney, AU</span>
+                        <ul class="top-btns">
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-gray fa fa-plus toggle"></a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-gray fa fa-star"></a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-gray fa fa-link"></a></li>
+                        </ul>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="http://188.226.173.21/html/careers/candidates.html#" class="read-more">Read More</a></p>
+                        <div class="clearfix"></div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
+                            <ul class="list-unstyled">
+                                <li><strong>Experience:</strong> 5 Years</li>
+                                <li><strong>Degree:</strong> MBA</li>
+                                <li><strong>Career Level:</strong> Mid Career</li>
+                            </ul>
+                            <h5>Skills</h5>
+                            <div class="progress-bar toggle" data-progress="60">
+                                <a href="http://188.226.173.21/html/careers/candidates.html#" class="progress-bar-toggle"></a>
+                                <h6 class="progress-bar-title">Web Design</h6>
+                                <div class="progress-bar-inner"><span></span></div>
+                                <div class="progress-bar-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+                                </div>
+                            </div>
+                            <div class="progress-bar toggle" data-progress="60">
+                                <a href="http://188.226.173.21/html/careers/candidates.html#" class="progress-bar-toggle"></a>
+                                <h6 class="progress-bar-title">Development</h6>
+                                <div class="progress-bar-inner"><span></span></div>
+                                <div class="progress-bar-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+                                </div>
+                            </div>
+                            <div class="progress-bar toggle" data-progress="60">
+                                <a href="http://188.226.173.21/html/careers/candidates.html#" class="progress-bar-toggle"></a>
+                                <h6 class="progress-bar-title">UI/UX</h6>
+                                <div class="progress-bar-inner"><span></span></div>
+                                <div class="progress-bar-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="clearfix">
+                                <a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
+                                <ul class="social-icons pull-right">
+                                    <li><span>Share</span></li>
+                                    <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-gray fa fa-facebook"></a></li>
+                                    <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-gray fa fa-twitter"></a></li>
+                                    <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="btn btn-gray fa fa-google-plus"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="clearfix">
+                        <ul class="pagination pull-right">
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="fa fa-angle-left"></a></li>
+                            <li class="active"><a href="http://188.226.173.21/html/careers/candidates.html#">1</a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#">2</a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#">3</a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#">4</a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#">5</a></li>
+                            <li><a href="http://188.226.173.21/html/careers/candidates.html#" class="fa fa-angle-right"></a></li>
+                        </ul>
+                    </div>
+                    -->
+                    </div>
+            </div>
+        </div> <!-- end .container -->
+</div> <!-- end #page-content -->
+<!--Old school stuff-->
+@*
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Experienta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitudine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitudine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Experienta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitudine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitudine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdCV }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdCV }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdCV })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@

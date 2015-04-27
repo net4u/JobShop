@@ -1,0 +1,682 @@
+﻿@*
+    @model PagedList.IPagedList<JobShop.Jobs>
+    @using PagedList.Mvc;
+*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gaseste toate locurile de munca pentru part time pe JobShop.ro - cel mai important portal de joburi in si din Romania oferit de catre infosystems4u s.r.l., o companie specializata in consultanta, proiectare, executie si punere in functiune a sistemelor informatice complexe" />
+    <meta name="keywords" content="job, joburi, oferta, oferte, oferte de munca, angajare, oferte de angajare, CV, candidat, candidati, servicii, locuri de munca, cariera, cariere, fidelizare, servicii de fidelizare, software, dot.net, web 2.0, social web, microsoft, B2B, baze de date, SQL, analiza, proiectare, implementare, testare, intretinere" />
+    <title>@ViewBag.Title - JobShop Application</title>
+
+    <!-- Stylesheets -->
+    <!--<link href="~/Content/bootstrap.css" rel="stylesheet">-->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    
+
+    <link href="~/Content/css.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css1.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/style.css" rel="stylesheet">
+    <link href="~/Content/custom.css" rel="stylesheet">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/flexslider.css" rel="stylesheet">
+    <link href="~/Content/PagedList.css" rel="stylesheet">
+    <link href="~/Content/responsive.css" rel="stylesheet">
+    <link href="~/Content/style-switcher.css" rel="stylesheet">
+</head>
+<body class="loaded" onload="initialize();" onsubmit="showLocation(); return false;"><!--was onload=" initialize();" -->
+    <div id="main-wrapper">
+        <!--Form for Google Map -> onsubmit="showLocation(); return false;"-->
+        <header id="header" class="header-style-1">
+            <div class="header-top-bar">
+                <div class="container">
+                    <!-- Header Language -->
+                    <div class="header-language clearfix">
+                        <ul>
+                            <li class="active"><a href="#">Ro</a></li>
+                            <li><a href="#">Fr</a></li>
+                            <li><a href="#">En</a></li>
+                            <li><a href="#">It</a></li>
+                        </ul>
+                    </div>
+                    <!-- end .header-language -->
+                    @Html.Partial("_LoginPartial")
+                    @*<!--Account-->
+                        <div class=""></div>
+                    *@
+                    <!--Help related-->
+                    <div id="helpTrigger" class="helpTrigger"></div>
+                    <div id="helpContent" style="display:none">
+                        <h3>Helpdesk</h3>
+                        <p>
+                            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                            "Nimeni nu iubeşte durerea, nimeni nu o caută sau vrea să o aibă, din simpla cauză că e durere..."
+
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non est sit amet purus pretium suscipit. Sed eu efficitur augue. Integer nec quam rhoncus risus ornare tempor eget id orci. Donec vitae ipsum tincidunt, lacinia libero tempor, pharetra orci. Cras ultrices nisi id ornare varius. Proin a tristique urna. Fusce id ultricies diam. Morbi lorem velit, volutpat non convallis at, consequat ut urna. Sed nec metus magna. Donec at odio sed nisi ultricies ultrices in ut ante. Sed consectetur dui ac justo malesuada, in viverra tellus convallis. Nulla venenatis ut libero nec iaculis. Duis tempor sagittis dignissim.
+
+                            Nullam ante quam, lacinia sit amet malesuada pulvinar, pharetra a felis. Phasellus lobortis dui eu lorem aliquet dictum. Mauris augue mi, accumsan vestibulum laoreet eget, malesuada in turpis. Aenean sed purus eget lectus cursus accumsan ac nec tortor. Suspendisse dapibus, enim quis viverra tincidunt, mi massa posuere libero, scelerisque sodales libero leo a justo. Nulla volutpat est purus, et pharetra velit tempus nec. Donec lacinia finibus sodales. Nam feugiat lorem ac sem elementum porttitor. Nulla ultrices velit nec purus mattis, non maximus mi rutrum. Curabitur laoreet accumsan ex ut volutpat. Etiam faucibus, nunc sit amet pulvinar feugiat, libero lacus malesuada massa, sit amet fringilla leo magna in nulla. Etiam lacinia lorem at fringilla vestibulum. Nunc pulvinar dui vel mi cursus, id suscipit leo hendrerit.
+
+                            Donec posuere dictum fringilla. Phasellus tristique nulla ut tempor cursus. Sed eu nulla id dolor pharetra suscipit vel a urna. Sed vitae nisl tellus. Donec dignissim varius enim suscipit eleifend. Aliquam tristique, lectus sed venenatis pretium, nulla ex ullamcorper eros, eu volutpat mauris libero vitae est. Duis rutrum elementum convallis. Ut dignissim sodales rhoncus. Etiam augue ante, pretium sed diam sit amet, posuere mollis erat. Maecenas sed faucibus risus. Aenean vitae tellus et lorem vulputate finibus. Sed venenatis odio et semper malesuada. Nam ullamcorper ante quis neque gravida cursus.
+
+                            Mauris id tincidunt arcu. Integer consectetur nec lectus vitae elementum. Vivamus vel nunc sit amet ex vestibulum vestibulum. Quisque posuere porttitor elit, ac accumsan elit interdum eget. Nam eget volutpat dui. Quisque elementum quis nulla pellentesque tristique. Nulla nec mauris pellentesque, egestas velit eu, consectetur elit. Aliquam erat volutpat. Cras tincidunt tortor at ipsum vulputate, rhoncus mattis nisl iaculis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur eget vestibulum nisl, vitae dictum sem. Vivamus a tortor porta, egestas libero eget, dignissim sapien. Proin pretium nulla lacus, quis tincidunt lectus commodo eget. Integer sodales libero sed nulla eleifend interdum. Donec eget leo dapibus, volutpat est condimentum, finibus sapien. Ut quis finibus enim.
+
+                            Ut id risus magna. Vivamus finibus id est sit amet fermentum. Donec scelerisque volutpat ultrices. Nam felis metus, sagittis at egestas non, consequat semper tellus. Aliquam varius interdum lobortis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam in luctus tellus. In malesuada fringilla nisl non semper. Donec eleifend erat nec dolor ullamcorper elementum. Aliquam faucibus est a leo lobortis, et tempus risus cursus. Quisque eu turpis ut urna laoreet auctor sed vitae ipsum. Curabitur vehicula pellentesque consequat. Curabitur eget erat eget libero pulvinar suscipit.
+                        </p>
+                    </div>
+                    <!-- Bookmarks -->
+                    <a class="btn btn-link bookmarks" href="#">Favorites</a>
+                    <div class="header-register">
+                        <a class="btn btn-link" href="~/Views/Shared/Register.cshtml">Register</a>
+                        <div>
+                            <form action="~/Views/Account/Register.cshtml">
+                                <input class="form-control" placeholder="Username" type="text">
+                                <input class="form-control" placeholder="Email" type="email">
+                                <input class="form-control" placeholder="Password" type="password">
+                                <input class="btn btn-default" type="submit" value="Register">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="header-login">
+                        <a class="btn btn-link" href="#">Login</a>
+                        <div>
+                            <form action="~/Views/Account/Login.cshtml">
+                                <input class="form-control" placeholder="Username" type="text">
+                                <input class="form-control" placeholder="Password" type="password">
+                                <input class="btn btn-default" type="submit" value="Login">
+                                <a class="btn btn-link" href="#">Forgot Password?</a>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Header Register -->
+                    <!-- end .header-register -->
+                    <!-- Header Login -->
+                    <!-- end .header-login -->
+                </div>
+                <!-- end .container -->
+            </div>
+            <!-- end .header-top-bar -->
+            <div class="header-nav-bar">
+                <div class="container">
+                    <!-- Logo -->
+                    <div class="css-table logo">
+                        <div class="css-table-cell">
+                            <img alt="" src="images/header-logo.png">
+                            @* @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                            <!-- end .logo -->
+                        </div>
+                    </div>
+                    @Html.Partial("_Navigation")
+                   
+
+                </div>
+            </div>
+            <div class="header-search-bar">
+                <div class="container">
+                    <form id="AdvancedSearch" onsubmit="showLocation(); return true;>
+                        <!--Was: id="AdvancedSearch" onsubmit="showLocation(); return true;"-->
+                        <div class="basic-form clearfix">
+                            <a href="#" class="toggle"><span></span></a>
+                            <div class="hsb-input-1">
+                                <input class="form-control" placeholder="Caut ..." type="text">
+                            </div>
+                            <div class="hsb-text-1">
+                                in
+                            </div>
+                            <div class="hsb-container">
+                                <div class="hsb-input-2">
+                                    <input class="form-control" placeholder="Locatie" type="text">
+                                </div>
+                                <div class="hsb-select">
+                                    <select class="form-control">
+                                        <option value="0">Alege o categorie</option>
+                                        <option value="">Categoria 1</option>
+                                        <option value="">Categoria 2</option>
+                                        <option value="">Categoria 3</option>
+                                        <option value="">Categoria 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hsb-submit">
+                                <!--<input class="btn btn-default btn-block" type="submit" value="Cauta">-->
+
+                                <input id="radius_find" class="btn btn-default btn-block" value="Search" type="submit" onclick="radius_range_SelectedIndexChanged">
+                            </div>
+                        </div>
+                        <div class="advanced-form">
+                            <div class="container">
+                                <div id="InfoPanel">
+                                    <p id="locatia"></p>
+                                </div>
+                                <div class="row">
+
+                                    <label class="col-md-3">Distanta:</label>
+                                    <div class="col-md-9">
+                                        <div class="range-slider">
+                                            <div aria-disabled="false" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-current="100" data-max="200" data-min="1">
+                                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 49.748743718593%;"></div>
+                                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 49.748743718593%;"></a>
+                                            </div>
+                                            <div class="last-value">
+                                                <span>100</span> km
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-3">Rating:</label>
+                                    <div class="col-md-9">
+                                        <div class="range-slider">
+                                            <div aria-disabled="false" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-current="20" data-max="100" data-min="1">
+                                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 19.1919191919192%;"></div>
+                                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 19.1919191919192%;"></a>
+                                            </div>
+                                            <div class="last-value">
+                                                &gt; <span>20</span> %
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-3">Zile de la publicare</label>
+                                    <div class="col-md-9">
+                                        <div class="range-slider">
+                                            <div aria-disabled="false" class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-current="30" data-max="60" data-min="1">
+                                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 49.1525423728814%;"></div>
+                                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 49.1525423728814%;"></a>
+                                            </div>
+                                            <div class="last-value">
+                                                &lt; <span>30</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-3">Locatie</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" placeholder="Switzerland" type="text">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-3">Industrie</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control">
+                                            <option value="">Select Industry</option>
+                                            <option value="">Option 1</option>
+                                            <option value="">Option 2</option>
+                                            <option value="">Option 3</option>
+                                            <option value="">Option 4</option>
+                                            <option value="">Option 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end .header-search-bar -->
+            @*Header Banner*@
+            @Html.Partial("_HeaderBanner")
+
+            @*Page title*@
+            @Html.Partial("_HeaderPageTitle")
+        </header>
+        <!--Here start the content of rendered page(s)-->
+
+                                @*
+        @Html.Partial("JobsSlider")
+        @Html.Partial("CandidatesSlider")
+
+                                *@
+        
+        @RenderBody()
+
+
+        <!--End of Rendered Page-->
+        <!-- end #page-content -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-md-4">
+                        <div class="widget">
+                            <div class="widget-content">
+                                <img alt="" class="logo" src="images/header-logo.png">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. In, sunt illum dolore dolor vel perferendis nisi
+                                    sequi laudantium porro blanditiis!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-4">
+                        <div class="widget">
+                            <h6 class="widget-title">Navigare</h6>
+                            <div class="widget-content">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-12 col-md-6">
+                                        <ul class="footer-links">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">Joburi</a></li>
+                                            <li><a href="#">Candidati</a></li>
+                                            <li><a href="#">Partneri</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-12 col-md-6">
+                                        <ul class="footer-links">
+                                            <li><a href="#">Despre Noi</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                            <li><a href="#">Termeni &amp; Conditii</a></li>
+                                            <li><a href="#">Protectia Datelor</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-2">
+                        <div class="widget">
+                            <h6 class="widget-title">Urmareste-ne</h6>
+                            <div class="widget-content">
+                                <ul class="footer-links">
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="#">Facebook</a></li>
+                                    <li><a href="#">Youtube</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-2">
+                        <div class="widget">
+                            <h6 class="widget-title">Job-uri populare</h6>
+                            <div class="widget-content">
+                                <ul class="footer-links">
+                                    <li><a href="#">Web Developer</a></li>
+                                    <li><a href="#">Web Designer</a></li>
+                                    <li><a href="#">UX Engineer</a></li>
+                                    <li><a href="#">Account Manager</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>
+                        © Copyright 2014-2015
+                        <a href="#">JobShop</a> | All Rights Reserved | Powered by
+                        <a href="#">infosystems4u s.r.l.</a>
+                    </p>
+                    <ul class="footer-social">
+                        <li><a class="fa fa-facebook" href="#"></a></li>
+                        <li><a class="fa fa-twitter" href="#"></a></li>
+                        <li><a class="fa fa-linkedin" href="#"></a></li>
+                        <li><a class="fa fa-google-plus" href="#"></a></li>
+                        <li><a class="fa fa-pinterest" href="#"></a></li>
+                        <li><a class="fa fa-dribbble" href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- end #footer -->
+    </div>
+    <!-- end #main-wrapper -->
+    <!--Experimental GMap Stuff-->
+
+    <!--Scripts region-->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="~/Scripts/jquery.responsive-tabs.js"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+    <script src="~/Scripts/cprompt.min.js"></script>
+    <!--<script src="~/Scripts/js.js"></script>
+    <script src="~/Scripts/maplace.js"></script>-->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDuylPxp5ivLiJYnNbLapUTsPKOb5jJZYA&sensor=false"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA7j_Q-rshuWkc8HyFI4V2HxQYPm-xtd00hTQOC0OXpAMO40FHAxT29dNBGfxqMPq5zwdeiDSHEPL89A" type="text/javascript"></script>-->
+
+    <!--<script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>-->
+    @*my gmap key: AIzaSyDuylPxp5ivLiJYnNbLapUTsPKOb5jJZYA *@
+    <!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDuylPxp5ivLiJYnNbLapUTsPKOb5jJZYA&sensor=false"></script>-->
+
+    <!-- According to the Google Maps API Terms of Service you are required display a Google map when using the Google Maps API. see more on: http://code.google.com/apis/maps/terms.html -->
+
+
+    @section scripts {
+
+    }
+
+    @RenderSection("scripts", false)
+
+    <!--New map stuff-->
+    <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    <!--This code tells the browser to execute the "Initialize" method only when the complete document model has been loaded.-->
+    $(document).ready(function () {
+        Initialize();
+    });
+
+    // Where all the fun happens
+    function Initialize() {
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var Bucuresti = new google.maps.LatLng(44.43551, 26.102568); //44.43551, 26.102568
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            zoom: 10,
+            center: Bucuresti,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        // This shows adding a simple pin "marker" - this happens to be the Tate Gallery in Liverpool!
+        var myLatlng = new google.maps.LatLng(44.43551, 26.102568);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Universitate'
+        });
+
+        // You can make markers different colors...  google it up!
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
+
+        // a sample list of JSON encoded data of places to visit in Liverpool, UK
+        // you can either make up a JSON list server side, or call it from a controller using JSONResult
+        var data = [
+                  { "Id": 1, "JobName": "Infosystems4u", "OpeningHours":"9-5, M-F","GeoLong": "44.418836", "GeoLat": "26.017786" },
+                  { "Id": 2, "JobName": "Danyia Construct ", "OpeningHours": "9-1,2-5, M-F", "GeoLong": "44.429605", "GeoLat": "26.053417" },
+                  { "Id": 3, "JobName": "Walker Art Gallery", "OpeningHours": "9-7, M-F", "GeoLong": "53.409839", "GeoLat": "-2.979447" },
+                  { "Id": 4, "JobName": "National Conservation Centre", "OpeningHours": "10-6, M-F", "GeoLong": "53.407511", "GeoLat": "-2.984683" }
+               ];
+
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(data, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                'map': map,
+                'title': item.JobName
+            });
+
+            // Make the marker-pin blue!
+            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'><h4>Angajator: </h4><br/><strong>" + item.JobName + "</strong>" + "<div><p>Opening hours: <strong>" + item.OpeningHours + "</strong></p></div></div>"
+            });
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })
+    }
+
+
+    </script>
+
+    <script type="text/javascript">
+        //EU cookie directive
+        //-------------------------------------------
+        cPrompt.checkCookie()
+        cPrompt.cookieLink = '../Shared/EUCookies';
+        cPrompt.minimisePrompt = true;
+        cPrompt.hideOnAccept = true;
+
+
+        //Help Display Toggle
+        //-------------------------------------------
+        function getHelp() {
+            $.ajax({
+                url: '@Url.Action("GetHelp")',
+                dataType: "json",
+                type: "POST",
+                success: function (result) {
+                    $("#helpContent").empty().append(result);
+                    $("#helpContent").show();
+                    $("#helpTrigger").removeClass("helpTrigger")
+                        .addClass("closeTrigger");
+                    $("#helpTrigger").unbind("click");
+                    $("#helpTrigger").click(closeHelp);
+                }
+            });
+        }
+
+        function closeHelp() {
+            $("#helpContent").empty();
+            $("#helpContent").hide();
+            $("#helpTrigger").removeClass("closeTrigger")
+                .addClass("helpTrigger");
+            $("#helpTrigger").unbind("click");
+            $("#helpTrigger").click(getHelp);
+        }
+
+
+        
+        var geocoder, location1, location2;
+        function initialize() {
+            geocoder = new GClientGeocoder();
+            //pozitionarea vine aici?
+        }
+
+        //distance and stuff
+        function showLocation() {
+            //getElementById('address1').value
+            //document.forms[0].address1.value
+            geocoder.getLocations(getElementById('address1').value, function (response) {
+                if (!response || response.Status.code != 200) {
+                    alert("Sorry, we were unable to geocode the first address");
+                }
+                else {
+                    location1 = { lat: response.Placemark[0].Point.coordinates[1], lon: response.Placemark[0].Point.coordinates[0], address: response.Placemark[0].address };
+                    geocoder.getLocations(document.forms[0].address2.value, function (response) {
+                        if (!response || response.Status.code != 200) {
+                            alert("Sorry, we were unable to geocode the second address");
+                        }
+                        else {
+                            location2 = { lat: response.Placemark[0].Point.coordinates[1], lon: response.Placemark[0].Point.coordinates[0], address: response.Placemark[0].address };
+                            calculateDistance();
+                        }
+                    });
+                }
+            });
+        }
+
+        function calculateDistance() {
+            try {
+                var glatlng1 = new GLatLng(location1.lat, location1.lon);
+                var glatlng2 = new GLatLng(location2.lat, location2.lon);
+                var miledistance = glatlng1.distanceFrom(glatlng2, 3959).toFixed(1);
+                var kmdistance = (miledistance * 1.609344).toFixed(1);
+
+                document.getElementById('results').innerHTML = '<strong>Adresa 1: </strong>' + location1.address + ' -> <strong>Coordonatele:</strong> ' + glatlng1 + '<br /><strong>Adresa 2: </strong>' + location2.address + ' -> <strong>Coordonatele:</strong> ' + glatlng2 + '<br /><strong>Distanta: </strong>' + miledistance + ' mile (sau ' + kmdistance + ' kilometeri)';
+                //plotOnMap();
+
+            }
+            catch (error) {
+                alert(error);
+            }
+        }
+
+        function setText(val, e) {
+            document.getElementById(e).value = val;
+        }
+        function insertText(val, e) {
+            document.getElementById(e).value += val;
+        }
+        var nav = null;
+        function requestPosition() {
+            if (nav == null) {
+                nav = window.navigator;
+            }
+            if (nav != null) {
+                var geoloc = nav.geolocation;
+                if (geoloc != null) {
+                    geoloc.getCurrentPosition(successCallback, errorCallback);
+
+
+                }
+                else {
+                    console.log("Geolocation not supported");
+                }
+            }
+            else {
+                console.log("Navigator not found");
+            }
+        }
+        window.onload = requestPosition;
+
+        function PlotThis() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (p) {
+                    var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                    var mapOptions = {
+                        center: LatLng,
+                        zoom: 18,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: LatLng,
+                        map: map,
+                        title: "<div style = 'height:60px;width:200px'><b>Esti aici:</b><br />Latitudine: " + p.coords.latitude + "<br />Longitudine: " + p.coords.longitude
+                    });
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        var infoWindow = new google.maps.InfoWindow();
+                        infoWindow.setContent(marker.title);
+                        infoWindow.open(map, marker);
+                    });
+                });
+            } else {
+                alert('Geo Location feature is not supported in this browser.');
+            }
+        }
+
+        function successCallback(position) {
+            //setText(position.coords.latitude, "latitude");
+            //setText(position.coords.longitude, "longitude");
+            document.getElementById("locatia").innerHTML = "<strong>Locatia ta actuala: </strong>latitudine: " + position.coords.latitude + "<strong> respectiv </strong> longitudine: " + position.coords.longitude;
+            //document.getElementById("lati").innerHTML = "Latitudine: " + position.coords.latitude;
+            //document.getElementById("longi").innerHTML = "Longitudine: " + position.coords.longitude;
+
+        }
+
+        function errorCallback(error) {
+            var message = "";
+            // Check for known errors
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    message = "This website does not have permission to use " +
+                              "the Geolocation API";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    message = "The current position could not be determined.";
+                    break;
+                case error.PERMISSION_DENIED_TIMEOUT:
+                    message = "The current position could not be determined " +
+                              "within the specified timeout period.";
+                    break;
+            }
+            // If it's an unknown error, build a message that includes
+            // information that helps identify the situation, so that
+            // the error handler can be updated.
+            if (message == "") {
+                var strErrorCode = error.code.toString();
+                message = "The position could not be determined due to " +
+                          "an unknown error (Code: " + strErrorCode + ").";
+            }
+            console.log(message);
+
+
+        }
+
+        //Script for MVC based Google Mapping
+        $(document).ready(function () {
+            var gmarkers = [];
+            var map;
+
+            function initialize() {
+
+                var mapProp = {
+                    center: new google.maps.LatLng(44.418836, 26.017786), //Home Lat and Lon
+                    zoom: 6,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+            $("#txtSearch").keyup(function () {
+                var x = $("#txtSearch").val();
+
+                for (i = 0; i < gmarkers.length; i++) {
+                    gmarkers[i].setMap(null);
+                }
+
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Search", "Map")', //"../Map/Search"
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({ "Location": x }),
+                    dataType: "json",
+                    success: function (data) {
+                        var table = "<table class='table'>";
+                        $.each(data, function (index, value) {
+                            table += "<tr><td>" + value.Address + "</td></tr>";
+                            var latlng = new google.maps.LatLng(value.Latitude, value.Longitude);
+                            var marker = new google.maps.Marker({
+                                position: latlng,
+                                title: "<div style = 'height:60px;width:200px'><b>Esti aici:</b><br />Latitudine: " + value.Latitude + "<br />Longitudine: " + value.Longitude + "<br/></div>",
+                                icon: "../Assets/Images/pinkball.png",
+                                map: map
+                            });
+
+                            gmarkers.push(marker);
+
+                        });
+                        table += "</table>";
+                        $("#myData").html(table);
+
+                        if (x == "") {
+                            for (j = 0; j < gmarkers.length; j++) {
+                                gmarkers[j].setMap(null);
+                            }
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

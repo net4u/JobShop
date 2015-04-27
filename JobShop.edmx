@@ -1,0 +1,1210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JobShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserDetails">
+          <Key>
+            <PropertyRef Name="IdDetail" />
+          </Key>
+          <Property Name="IdDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="Country" Type="int" />
+          <Property Name="Website" Type="nvarchar(max)" />
+          <Property Name="ThumbURL" Type="nvarchar(max)" />
+          <Property Name="ThumbImg" Type="image" />
+          <Property Name="Facebook" Type="nvarchar(max)" />
+          <Property Name="Twitter" Type="nvarchar(max)" />
+          <Property Name="GooglePlus" Type="nvarchar(max)" />
+          <Property Name="Dribble" Type="nvarchar(max)" />
+          <Property Name="Pinterest" Type="nvarchar(max)" />
+          <Property Name="LinkedIn" Type="nvarchar(max)" />
+          <Property Name="Favorited" Type="bit" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="30" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="BirthDate" Type="date" />
+        </EntityType>
+        <EntityType Name="CandidateEducation">
+          <Key>
+            <PropertyRef Name="Id_Edu" />
+          </Key>
+          <Property Name="Id_Edu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_CV" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+        </EntityType>
+        <EntityType Name="CandidateExperience">
+          <Key>
+            <PropertyRef Name="IdExp" />
+          </Key>
+          <Property Name="IdExp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_CV" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+        </EntityType>
+        <EntityType Name="CandidateReq">
+          <Key>
+            <PropertyRef Name="IdReq" />
+          </Key>
+          <Property Name="IdReq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_CV" Type="int" />
+          <Property Name="Requirement" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="IdCV" />
+          </Key>
+          <Property Name="IdCV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User" Type="nvarchar" MaxLength="128" />
+          <Property Name="Experienta" Type="varchar(max)" />
+          <Property Name="DateAdd" Type="date" />
+          <Property Name="ImageSRC" Type="nvarchar(max)" />
+          <Property Name="Titlu" Type="nvarchar(max)" />
+          <Property Name="WhereWhat" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Solicitare" Type="nvarchar(max)" />
+          <Property Name="Orar" Type="nvarchar(max)" />
+          <Property Name="MinSal" Type="float" />
+          <Property Name="MaxSal" Type="float" />
+          <Property Name="Localitate" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+          <Property Name="Latitudine" Type="float" />
+          <Property Name="Longitudine" Type="float" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+          <Property Name="Region" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CandidateSkills">
+          <Key>
+            <PropertyRef Name="Id_Skill" />
+          </Key>
+          <Property Name="Id_Skill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_CV" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Level" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="JobRequirements">
+          <Key>
+            <PropertyRef Name="IdReq" />
+          </Key>
+          <Property Name="IdReq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Job" Type="int" />
+          <Property Name="Requirement" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="IdJob" />
+          </Key>
+          <Property Name="IdJob" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdWho" Type="int" />
+          <Property Name="User" Type="nvarchar" MaxLength="128" />
+          <Property Name="DateAdd" Type="date" />
+          <Property Name="ImageSRC" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="Titlu" Type="nchar" MaxLength="64" />
+          <Property Name="WhereWhat" Type="nchar" MaxLength="128" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Solicitare" Type="nvarchar(max)" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+          <Property Name="Orar" Type="nvarchar" MaxLength="30" />
+          <Property Name="Localitate" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Latitudine" Type="float" />
+          <Property Name="Longitudine" Type="float" />
+          <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+          <Property Name="Region" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="JobSkills">
+          <Key>
+            <PropertyRef Name="IdSkill" />
+          </Key>
+          <Property Name="IdSkill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Job" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Level" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="AspNetUserDetails_fk">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserDetails" Type="Self.AspNetUserDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserDetails">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateEducation_fk">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CandidateEducation" Type="Self.CandidateEducation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateEducation">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateExperience_fk">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CandidateExperience" Type="Self.CandidateExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateExperience">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateReq_fk">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CandidateReq" Type="Self.CandidateReq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateReq">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Candidates_fk">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateSkills_fk">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CandidateSkills" Type="Self.CandidateSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateSkills">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobRequirements_fk">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobRequirements" Type="Self.JobRequirements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="IdJob" />
+            </Principal>
+            <Dependent Role="JobRequirements">
+              <PropertyRef Name="Id_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Jobs_fk">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobSkills_fk">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobSkills" Type="Self.JobSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="IdJob" />
+            </Principal>
+            <Dependent Role="JobSkills">
+              <PropertyRef Name="Id_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DistanceBetween" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="real">
+          <Parameter Name="Lat1" Type="real" Mode="In" />
+          <Parameter Name="Long1" Type="real" Mode="In" />
+          <Parameter Name="Lat2" Type="real" Mode="In" />
+          <Parameter Name="Long2" Type="real" Mode="In" />
+        </Function>
+        <Function Name="SearchByRadius" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="distance" Type="float" Mode="In" />
+          <Parameter Name="lat" Type="float" Mode="In" />
+          <Parameter Name="long" Type="float" Mode="In" />
+        </Function>
+        <Function Name="SearchByRadiusCV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="distance" Type="float" Mode="In" />
+          <Parameter Name="lat" Type="float" Mode="In" />
+          <Parameter Name="long" Type="float" Mode="In" />
+        </Function>
+        <Function Name="SearchByRadiusJobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="distance" Type="float" Mode="In" />
+          <Parameter Name="lat" Type="float" Mode="In" />
+          <Parameter Name="long" Type="float" Mode="In" />
+        </Function>
+        <EntityContainer Name="JobShopModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserDetails" EntityType="Self.AspNetUserDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidateEducation" EntityType="Self.CandidateEducation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidateExperience" EntityType="Self.CandidateExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidateReq" EntityType="Self.CandidateReq" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidateSkills" EntityType="Self.CandidateSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobRequirements" EntityType="Self.JobRequirements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobSkills" EntityType="Self.JobSkills" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AspNetUserDetails_fk" Association="Self.AspNetUserDetails_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserDetails" EntitySet="AspNetUserDetails" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateEducation_fk" Association="Self.CandidateEducation_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateEducation" EntitySet="CandidateEducation" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateExperience_fk" Association="Self.CandidateExperience_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateExperience" EntitySet="CandidateExperience" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateReq_fk" Association="Self.CandidateReq_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateReq" EntitySet="CandidateReq" />
+          </AssociationSet>
+          <AssociationSet Name="Candidates_fk" Association="Self.Candidates_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateSkills_fk" Association="Self.CandidateSkills_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateSkills" EntitySet="CandidateSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="JobRequirements_fk" Association="Self.JobRequirements_fk">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobRequirements" EntitySet="JobRequirements" />
+          </AssociationSet>
+          <AssociationSet Name="Jobs_fk" Association="Self.Jobs_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="JobSkills_fk" Association="Self.JobSkills_fk">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobSkills" EntitySet="JobSkills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JobShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="Int32" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThumbURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThumbImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GooglePlus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dribble" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pinterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkedIn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Favorited" Type="Boolean" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Jobs" Relationship="Self.Jobs_fk" FromRole="AspNetUsers" ToRole="Jobs" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Candidates" Relationship="JobShopModel.Candidates_fk" FromRole="AspNetUsers" ToRole="Candidates" />
+          <NavigationProperty Name="AspNetUserDetails" Relationship="JobShopModel.AspNetUserDetails_fk" FromRole="AspNetUsers" ToRole="AspNetUserDetails" />
+        </EntityType>
+        <EntityType Name="JobRequirements">
+          <Key>
+            <PropertyRef Name="IdReq" />
+          </Key>
+          <Property Name="IdReq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Job" Type="Int32" />
+          <Property Name="Requirement" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Jobs" Relationship="Self.JobRequirements_fk" FromRole="JobRequirements" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="IdJob" />
+          </Key>
+          <Property Name="IdJob" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdWho" Type="Int32" />
+          <Property Name="User" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DateAdd" Type="DateTime" Precision="0" />
+          <Property Name="ImageSRC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Titlu" Type="String" MaxLength="64" FixedLength="true" Unicode="true" />
+          <Property Name="WhereWhat" Type="String" MaxLength="128" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Solicitare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="Orar" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Latitudine" Type="Double" />
+          <Property Name="Longitudine" Type="Double" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.Jobs_fk" FromRole="Jobs" ToRole="AspNetUsers" />
+          <NavigationProperty Name="JobRequirements" Relationship="Self.JobRequirements_fk" FromRole="Jobs" ToRole="JobRequirements" />
+          <NavigationProperty Name="JobSkills" Relationship="Self.JobSkills_fk" FromRole="Jobs" ToRole="JobSkills" />
+          <Property Name="Localitate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="JobSkills">
+          <Key>
+            <PropertyRef Name="IdSkill" />
+          </Key>
+          <Property Name="IdSkill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Job" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="Int32" />
+          <NavigationProperty Name="Jobs" Relationship="Self.JobSkills_fk" FromRole="JobSkills" ToRole="Jobs" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Jobs_fk">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobRequirements_fk">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1" />
+          <End Role="JobRequirements" Type="Self.JobRequirements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="IdJob" />
+            </Principal>
+            <Dependent Role="JobRequirements">
+              <PropertyRef Name="Id_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JobSkills_fk">
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1" />
+          <End Role="JobSkills" Type="Self.JobSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="IdJob" />
+            </Principal>
+            <Dependent Role="JobSkills">
+              <PropertyRef Name="Id_Job" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="JobShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="JobRequirements" EntityType="Self.JobRequirements" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" />
+          <EntitySet Name="JobSkills" EntityType="Self.JobSkills" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="Jobs_fk" Association="Self.Jobs_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="JobRequirements_fk" Association="Self.JobRequirements_fk">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobRequirements" EntitySet="JobRequirements" />
+          </AssociationSet>
+          <AssociationSet Name="JobSkills_fk" Association="Self.JobSkills_fk">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="JobSkills" EntitySet="JobSkills" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="SearchByRadius" ReturnType="Collection(JobShopModel.SearchByRadius_Result)">
+            <Parameter Name="distance" Mode="In" Type="Double" />
+            <Parameter Name="lat" Mode="In" Type="Double" />
+            <Parameter Name="long" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SearchByRadiusCV" ReturnType="Collection(JobShopModel.SearchByRadiusCV_Result)">
+            <Parameter Name="distance" Mode="In" Type="Double" />
+            <Parameter Name="lat" Mode="In" Type="Double" />
+            <Parameter Name="long" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="SearchByRadiusJobs" ReturnType="Collection(JobShopModel.SearchByRadiusJobs_Result)">
+            <Parameter Name="distance" Mode="In" Type="Double" />
+            <Parameter Name="lat" Mode="In" Type="Double" />
+            <Parameter Name="long" Mode="In" Type="Double" />
+          </FunctionImport>
+          <EntitySet Name="CandidateEducation" EntityType="JobShopModel.CandidateEducation" />
+          <EntitySet Name="CandidateExperience" EntityType="JobShopModel.CandidateExperience" />
+          <EntitySet Name="CandidateReq" EntityType="JobShopModel.CandidateReq" />
+          <EntitySet Name="CandidateSkills" EntityType="JobShopModel.CandidateSkills" />
+          <EntitySet Name="Candidates" EntityType="JobShopModel.Candidates" />
+          <AssociationSet Name="Candidates_fk" Association="JobShopModel.Candidates_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateEducation_fk" Association="JobShopModel.CandidateEducation_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateEducation" EntitySet="CandidateEducation" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateExperience_fk" Association="JobShopModel.CandidateExperience_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateExperience" EntitySet="CandidateExperience" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateSkills_fk" Association="JobShopModel.CandidateSkills_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateSkills" EntitySet="CandidateSkills" />
+          </AssociationSet>
+          <AssociationSet Name="CandidateReq_fk" Association="JobShopModel.CandidateReq_fk">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="CandidateReq" EntitySet="CandidateReq" />
+          </AssociationSet>
+          <EntitySet Name="AspNetUserDetails" EntityType="JobShopModel.AspNetUserDetails" />
+          <AssociationSet Name="AspNetUserDetails_fk" Association="JobShopModel.AspNetUserDetails_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserDetails" EntitySet="AspNetUserDetails" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="SearchByRadius_Result">
+          <Property Type="Double" Name="Distance" Nullable="true" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="80" />
+          <Property Type="Double" Name="latitudine" Nullable="true" />
+          <Property Type="Double" Name="longitudine" Nullable="true" />
+          <Property Type="String" Name="ZIP" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="informatii" Nullable="true" />
+          <Property Type="String" Name="site" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="SearchByRadiusCV_Result">
+          <Property Type="Double" Name="Distance" Nullable="true" />
+          <Property Type="Int32" Name="IdCV" Nullable="false" />
+          <Property Type="String" Name="User" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Experienta" Nullable="true" />
+          <Property Type="Double" Name="Latitudine" Nullable="true" />
+          <Property Type="Double" Name="Longitudine" Nullable="true" />
+          <Property Type="String" Name="address" Nullable="true" />
+          <Property Type="String" Name="ZIP" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SearchByRadiusJobs_Result">
+          <Property Type="Double" Name="Distance" Nullable="true" />
+          <Property Type="Int32" Name="IdJob" Nullable="false" />
+          <Property Type="Int32" Name="IdWho" Nullable="true" />
+          <Property Type="String" Name="User" Nullable="true" MaxLength="128" />
+          <Property Type="DateTime" Name="DateAdd" Nullable="true" />
+          <Property Type="String" Name="ImageSRC" Nullable="true" />
+          <Property Type="String" Name="Titlu" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="WhereWhat" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="Content" Nullable="true" />
+          <Property Type="String" Name="Solicitare" Nullable="true" />
+          <Property Type="DateTime" Name="DateStart" Nullable="true" />
+          <Property Type="DateTime" Name="DateEnd" Nullable="true" />
+          <Property Type="String" Name="Orar" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="Double" Name="Latitudine" Nullable="true" />
+          <Property Type="Double" Name="Longitudine" Nullable="true" />
+          <Property Type="String" Name="ZIP" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <EntityType Name="CandidateEducation">
+          <Key>
+            <PropertyRef Name="Id_Edu" />
+          </Key>
+          <Property Name="Id_Edu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_CV" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Candidates" Relationship="JobShopModel.CandidateEducation_fk" FromRole="CandidateEducation" ToRole="Candidates" />
+        </EntityType>
+        <EntityType Name="CandidateExperience">
+          <Key>
+            <PropertyRef Name="IdExp" />
+          </Key>
+          <Property Name="IdExp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_CV" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Candidates" Relationship="JobShopModel.CandidateExperience_fk" FromRole="CandidateExperience" ToRole="Candidates" />
+        </EntityType>
+        <EntityType Name="CandidateReq">
+          <Key>
+            <PropertyRef Name="IdReq" />
+          </Key>
+          <Property Name="IdReq" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_CV" Type="Int32" />
+          <Property Name="Requirement" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Candidates" Relationship="JobShopModel.CandidateReq_fk" FromRole="CandidateReq" ToRole="Candidates" />
+        </EntityType>
+        <EntityType Name="CandidateSkills">
+          <Key>
+            <PropertyRef Name="Id_Skill" />
+          </Key>
+          <Property Name="Id_Skill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_CV" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Candidates" Relationship="JobShopModel.CandidateSkills_fk" FromRole="CandidateSkills" ToRole="Candidates" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="IdCV" />
+          </Key>
+          <Property Name="IdCV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Experienta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateAdd" Type="DateTime" Precision="0" />
+          <Property Name="ImageSRC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Titlu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WhereWhat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Solicitare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Orar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MinSal" Type="Double" />
+          <Property Name="MaxSal" Type="Double" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Latitudine" Type="Double" />
+          <Property Name="Longitudine" Type="Double" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUsers" Relationship="JobShopModel.Candidates_fk" FromRole="Candidates" ToRole="AspNetUsers" />
+          <NavigationProperty Name="CandidateEducation" Relationship="JobShopModel.CandidateEducation_fk" FromRole="Candidates" ToRole="CandidateEducation" />
+          <NavigationProperty Name="CandidateExperience" Relationship="JobShopModel.CandidateExperience_fk" FromRole="Candidates" ToRole="CandidateExperience" />
+          <NavigationProperty Name="CandidateSkills" Relationship="JobShopModel.CandidateSkills_fk" FromRole="Candidates" ToRole="CandidateSkills" />
+          <NavigationProperty Name="CandidateReq" Relationship="JobShopModel.CandidateReq_fk" FromRole="Candidates" ToRole="CandidateReq" />
+          <Property Name="Localitate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="Candidates_fk">
+          <End Type="JobShopModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1" />
+          <End Type="JobShopModel.Candidates" Role="Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateEducation_fk">
+          <End Type="JobShopModel.Candidates" Role="Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="JobShopModel.CandidateEducation" Role="CandidateEducation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateEducation">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateExperience_fk">
+          <End Type="JobShopModel.Candidates" Role="Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="JobShopModel.CandidateExperience" Role="CandidateExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateExperience">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateSkills_fk">
+          <End Type="JobShopModel.Candidates" Role="Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="JobShopModel.CandidateSkills" Role="CandidateSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateSkills">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CandidateReq_fk">
+          <End Type="JobShopModel.Candidates" Role="Candidates" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="JobShopModel.CandidateReq" Role="CandidateReq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="IdCV" />
+            </Principal>
+            <Dependent Role="CandidateReq">
+              <PropertyRef Name="Id_CV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AspNetUserDetails">
+          <Key>
+            <PropertyRef Name="IdDetail" />
+          </Key>
+          <Property Name="IdDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="JobShopModel.AspNetUserDetails_fk" FromRole="AspNetUserDetails" ToRole="AspNetUsers" />
+        </EntityType>
+        <Association Name="AspNetUserDetails_fk">
+          <End Type="JobShopModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="JobShopModel.AspNetUserDetails" Role="AspNetUserDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserDetails">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JobShopModelStoreContainer" CdmEntityContainer="JobShopEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="JobShopModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="JobShopModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="JobShopModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="JobShopModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="ThumbURL" ColumnName="ThumbURL" />
+                <ScalarProperty Name="ThumbImg" ColumnName="ThumbImg" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="Dribble" ColumnName="Dribble" />
+                <ScalarProperty Name="Pinterest" ColumnName="Pinterest" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="Favorited" ColumnName="Favorited" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobRequirements">
+            <EntityTypeMapping TypeName="JobShopModel.JobRequirements">
+              <MappingFragment StoreEntitySet="JobRequirements">
+                <ScalarProperty Name="IdReq" ColumnName="IdReq" />
+                <ScalarProperty Name="Id_Job" ColumnName="Id_Job" />
+                <ScalarProperty Name="Requirement" ColumnName="Requirement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="JobShopModel.Jobs">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Localitate" ColumnName="Localitate" />
+                <ScalarProperty Name="IdJob" ColumnName="IdJob" />
+                <ScalarProperty Name="IdWho" ColumnName="IdWho" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+                <ScalarProperty Name="ImageSRC" ColumnName="ImageSRC" />
+                <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+                <ScalarProperty Name="WhereWhat" ColumnName="WhereWhat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Solicitare" ColumnName="Solicitare" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="Orar" ColumnName="Orar" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Latitudine" ColumnName="Latitudine" />
+                <ScalarProperty Name="Longitudine" ColumnName="Longitudine" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobSkills">
+            <EntityTypeMapping TypeName="JobShopModel.JobSkills">
+              <MappingFragment StoreEntitySet="JobSkills">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+                <ScalarProperty Name="Id_Job" ColumnName="Id_Job" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="JobShopModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SearchByRadius" FunctionName="JobShopModel.Store.SearchByRadius">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JobShopModel.SearchByRadius_Result">
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="latitudine" ColumnName="latitudine" />
+                <ScalarProperty Name="longitudine" ColumnName="longitudine" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="informatii" ColumnName="informatii" />
+                <ScalarProperty Name="site" ColumnName="site" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchByRadiusCV" FunctionName="JobShopModel.Store.SearchByRadiusCV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JobShopModel.SearchByRadiusCV_Result">
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="IdCV" ColumnName="IdCV" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Experienta" ColumnName="Experienta" />
+                <ScalarProperty Name="Latitudine" ColumnName="Latitudine" />
+                <ScalarProperty Name="Longitudine" ColumnName="Longitudine" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchByRadiusJobs" FunctionName="JobShopModel.Store.SearchByRadiusJobs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JobShopModel.SearchByRadiusJobs_Result">
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="IdJob" ColumnName="IdJob" />
+                <ScalarProperty Name="IdWho" ColumnName="IdWho" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+                <ScalarProperty Name="ImageSRC" ColumnName="ImageSRC" />
+                <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+                <ScalarProperty Name="WhereWhat" ColumnName="WhereWhat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Solicitare" ColumnName="Solicitare" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="Orar" ColumnName="Orar" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Latitudine" ColumnName="Latitudine" />
+                <ScalarProperty Name="Longitudine" ColumnName="Longitudine" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CandidateEducation">
+            <EntityTypeMapping TypeName="JobShopModel.CandidateEducation">
+              <MappingFragment StoreEntitySet="CandidateEducation">
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id_CV" ColumnName="Id_CV" />
+                <ScalarProperty Name="Id_Edu" ColumnName="Id_Edu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidateExperience">
+            <EntityTypeMapping TypeName="JobShopModel.CandidateExperience">
+              <MappingFragment StoreEntitySet="CandidateExperience">
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id_CV" ColumnName="Id_CV" />
+                <ScalarProperty Name="IdExp" ColumnName="IdExp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidateReq">
+            <EntityTypeMapping TypeName="JobShopModel.CandidateReq">
+              <MappingFragment StoreEntitySet="CandidateReq">
+                <ScalarProperty Name="Requirement" ColumnName="Requirement" />
+                <ScalarProperty Name="Id_CV" ColumnName="Id_CV" />
+                <ScalarProperty Name="IdReq" ColumnName="IdReq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidateSkills">
+            <EntityTypeMapping TypeName="JobShopModel.CandidateSkills">
+              <MappingFragment StoreEntitySet="CandidateSkills">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id_CV" ColumnName="Id_CV" />
+                <ScalarProperty Name="Id_Skill" ColumnName="Id_Skill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="JobShopModel.Candidates">
+              <MappingFragment StoreEntitySet="Candidates">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Localitate" ColumnName="Localitate" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Longitudine" ColumnName="Longitudine" />
+                <ScalarProperty Name="Latitudine" ColumnName="Latitudine" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MaxSal" ColumnName="MaxSal" />
+                <ScalarProperty Name="MinSal" ColumnName="MinSal" />
+                <ScalarProperty Name="Orar" ColumnName="Orar" />
+                <ScalarProperty Name="Solicitare" ColumnName="Solicitare" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="WhereWhat" ColumnName="WhereWhat" />
+                <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+                <ScalarProperty Name="ImageSRC" ColumnName="ImageSRC" />
+                <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
+                <ScalarProperty Name="Experienta" ColumnName="Experienta" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="IdCV" ColumnName="IdCV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserDetails">
+            <EntityTypeMapping TypeName="JobShopModel.AspNetUserDetails">
+              <MappingFragment StoreEntitySet="AspNetUserDetails">
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdDetail" ColumnName="IdDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

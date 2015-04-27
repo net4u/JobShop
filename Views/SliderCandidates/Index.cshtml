@@ -1,0 +1,39 @@
+﻿@model IEnumerable<JobShop.Candidates>
+@*The Latest Candidates Slider*@
+<div class="title-lines">
+    <h3>Cei mai noi candidati: <span>@Model.Count()</span></h3>
+</div>
+
+<div class="latest-jobs-section white-container">
+    <div class="flexslider clearfix">
+
+        <!--db feeded slider-->
+        @if (Model.Count() > 0)
+        {
+            <ul class="slides">
+                @{int i = 1;
+
+                foreach (var item in Model)
+                {
+                    <li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; display: block; z-index: 1; opacity: 0;">
+                        <div class="image">
+                            <img alt="" draggable="false" src="@item.ImageSRC">
+                            <a class="btn btn-default fa fa-search" href="#"></a>
+                            <a class="btn btn-default fa fa-link" href="#"></a>
+                        </div>
+                        <div class="content">
+                            <h6>@item.Titlu</h6>
+                            <span class="location">@item.WhereWhat</span>
+                            <p>@item.Content</p>
+                        </div>
+
+                    </li>
+                }
+                }
+            </ul>
+        }
+        else
+        {<p style="color: red">Sorry ! No candidate(s) record(s) found.</p>}
+
+    </div>
+</div>

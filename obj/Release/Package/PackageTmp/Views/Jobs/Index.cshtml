@@ -1,0 +1,412 @@
+﻿@model PagedList.IPagedList<JobShop.Jobs>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Lista Pozitiilor Disponibile";
+}
+
+<!--Here starts the JobsPage content to be injected into _Layout.cshtml-->
+
+<!--
+<div id="jobs-page-map" class="white-container" style="position: relative; overflow: hidden;">
+    <div class="canvas_map">
+        
+
+    </div>
+</div>
+
+
+<div class="header-page-title">
+    <div class="container">
+        <h3>Available Jobs Listing</h3>
+    </div>
+</div>
+-->
+<div id="page-content">
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 page-sidebar">
+                    <aside>
+                        <div class="white-container mb0 effect7 ">
+                            <br />
+                            <div class="widget sidebar-widget jobs-search-widget">
+                                <h5 class="widget-title">I am looking for a ...</h5>
+                                <div class="widget-content">
+                                    <span>Find by specified term:</span>
+                                    @using (Html.BeginForm("Index", "Jobs", FormMethod.Get))
+                                    {
+                                        <div id="SearchPanel">
+                                            <p>
+                                                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Search for Title or Description?" })
+                                            </p>
+                                            <p>
+                                                <input type="submit" class="btn btn-default btn-block" value="Cauta" />
+                                            </p>
+                                            <p>
+                                                <input type="submit" class="btn btn-default btn-block" value="Arata tot" />
+                                            </p>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="widget sidebar-widget jobs-filter-widget">
+                                    <h5 class="widget-title">Filter Results</h5>
+                                    <div class="widget-content">
+                                        <h6>By Region</h6>
+                                        <div>
+                                            <ul class="filter-list">
+                                                <li class="has-submenu">
+                                                    <a href="#">Asia <span>(1234)</span></a>
+                                                    <ul>
+                                                        <li class="has-submenu">
+                                                            <a href="#">Asia <span>(1234)</span></a>
+                                                            <ul>
+                                                                <li><a href="#">Asia <span>(1234)</span></a></li>
+                                                                <li><a href="#">Africa <span>(5678)</span></a></li>
+                                                                <li><a href="#">Europe <span>(910)</span></a></li>
+                                                                <li><a href="#">North America <span>(347)</span></a></li>
+                                                                <li><a href="#">Central America <span>(52)</span></a></li>
+                                                                <li><a href="#">South America <span>(117)</span></a></li>
+                                                                <li><a href="#">Oceania <span>(736)</span></a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#">Africa <span>(5678)</span></a></li>
+                                                        <li><a href="#">Europe <span>(910)</span></a></li>
+                                                        <li><a href="#">North America <span>(347)</span></a></li>
+                                                        <li><a href="#">Central America <span>(52)</span></a></li>
+                                                        <li><a href="#">South America <span>(117)</span></a></li>
+                                                        <li><a href="#">Oceania <span>(736)</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Africa <span>(5678)</span></a></li>
+                                                <li><a href="#">Europe <span>(910)</span></a></li>
+                                                <li><a href="#">North America <span>(347)</span></a></li>
+                                                <li><a href="#">Central America <span>(52)</span></a></li>
+                                                <li><a href="#">South America <span>(117)</span></a></li>
+                                                <li><a href="#">Oceania <span>(736)</span></a></li>
+                                            </ul>
+                                            <a href="#" class="toggle"></a>
+                                        </div>
+                                        <h6>By Industry</h6>
+                                        <div>
+                                            <ul class="filter-list">
+                                                <li><a href="#">Administration <span>(75)</span></a></li>
+                                                <li><a href="#">Manufactoring <span>(3741)</span></a></li>
+                                                <li><a href="#">Healthcare &amp; Science <span>(115)</span></a></li>
+                                                <li><a href="#">Media &amp; Creative <span>(347)</span></a></li>
+                                                <li><a href="#">Transportation <span>(52)</span></a></li>
+                                            </ul>
+                                            <a href="#" class="toggle"></a>
+                                        </div>
+                                        <h6>By Type</h6>
+                                        <div>
+                                            <ul class="filter-list">
+                                                <li><a href="#">Banking/Finance <span>(300)</span></a></li>
+                                                <li><a href="#">Administration <span>(758)</span></a></li>
+                                                <li><a href="#">Art/Design/Creative <span>(20)</span></a></li>
+                                                <li><a href="#">Customer Service <span>(165)</span></a></li>
+                                                <li><a href="#">Education/Training <span>(11)</span></a></li>
+                                                <li><a href="#">Banking/Finance <span>(9)</span></a></li>
+                                            </ul>
+                                            <a href="#" class="toggle"></a>
+                                        </div>
+                                        <h6>Type of Contract</h6>
+                                        <div class="checkbox"><label><input type="checkbox"> Full-Time</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Part-Time</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Freelance</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Internship</label></div>
+                                        <h6>Work Experience</h6>
+                                        <div class="checkbox"><label><input type="checkbox"> Not Applicable</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Mid-Senior Level</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Entry Level</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Associate</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Director</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Internship</label></div>
+                                        <div class="checkbox"><label><input type="checkbox"> Executive</label></div>
+                                        <h6>Work Permit</h6>
+                                        <div class="radio"><label><input type="radio"> Full-Time</label></div>
+                                        <div class="radio"><label><input type="radio"> Part-Time</label></div>
+                                        <div class="radio"><label><input type="radio"> Freelance</label></div>
+                                        <h6>Date Posted</h6>
+                                        <div class="range-slider clearfix">
+                                            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="1" data-max="60" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                                            <div class="first-value"><span>1</span> days</div>
+                                            <div class="last-value"><span>60</span> days</div>
+                                        </div>
+                                        <h6>Salary Range</h6>
+                                        <div class="range-slider clearfix">
+                                            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-min="1" data-max="100000" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                                            <div class="first-value">$ <span>1</span></div>
+                                            <div class="last-value">$ <span>100000</span></div>
+                                        </div>
+                                        <input type="submit" class="btn btn-default mt30" value="Filter">
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <!--Here comes the display grid-->
+                <div class="col-sm-8 page-content">
+                    <div class="title-lines">
+                        <h3 class="mt0">Pozitii Disponibile: <span>@Model.TotalItemCount deschise</span></h3>
+                    </div>
+                    <div class="clearfix mb30">
+                        <ul class="jobs-view-toggle pull-left">
+                            <li><a href="#" data-layout="with-thumb" class="btn btn-gray fa fa-th-list active"></a></li>
+                            <li><a href="#" data-layout="" class="btn btn-gray fa fa-list"></a></li>
+                            <li><a href="#" data-layout="compact" class="btn btn-gray fa fa-align-justify"></a></li>
+                        </ul>
+                        <select class="form-control pull-left">
+                            <option value="">Sort By</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                        </select>
+                        <br />
+                        <hr />
+
+                        Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) din @Model.PageCount
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+                    </div>
+                    @*
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+                    *@
+                    @if (Model.Count() > 0)
+                    {
+                        <div>
+                            @{int i = 1;
+                            foreach (var item in Model)
+                            {
+                                <div class="jobs-item with-thumb effect7 bordered @(i++ % 2 == 0 ? "highlighted" : "")">
+                                    <p>@item.IdJob</p>
+                                    <div class="thumb">
+                                        <img src="@item.ImageSRC" width="88" height="88" />
+                                    </div>
+                                    <div class="clearfix visible-xs"></div>
+                                    <div class="date"><strong>Adaugat pe:</strong><span>@item.DateAdd.ToString()</span></div>
+                                    <h6 class="title"><strong>Titlu:</strong> @item.Titlu</h6>
+                                    <span class="meta"><strong>Unde:</strong> @item.WhereWhat</span>
+                                    <p class="address"><strong>Adresa:</strong> @item.Address</p>
+                                    <p class="description"><strong>Descriere:</strong> @item.Description</p>
+                                    <p class="meta"><strong>Solicitare:</strong> @item.Solicitare</p>
+
+
+                                    <ul class="top-btns">
+                                        <li><a href="" class="btn btn-gray fa fa-plus toggle"></a></li>
+                                        <li><a href="" class="btn btn-gray fa fa-star"></a></li>
+                                        <li><a href="" class="btn btn-gray fa fa-link"></a></li>
+                                        @Html.ActionLink(" Detalii...", "Details", "Jobs", new { id = item.IdJob }, new { @class = "btn btn-default fa fa-link" })
+
+
+                                    </ul>
+
+                                    <div class="content">
+                                        <!--Was: style="display:block"-->
+                                        <p class="description"><strong>Detalii:</strong> @item.Content ...</p>
+
+                                        <!--Extra details like skills and requirements-->
+                                        <!--Bucla de for pentru Skills-->
+                                        <h5>Competente Necesare</h5>
+                                        @if (item.JobSkills.Count > 0)
+                                        {
+                                            <div>
+                                                <!--Was: style="color:black"-->
+                                                @{int j = 1;
+
+                                                foreach (var jobSkills in item.JobSkills)
+                                                {
+                                                    <div class="job-progress-bar toggle" data-progress="@jobSkills.Level">
+                                                        <!--Here comes item.value-->
+                                                        <a href="" class="job-progress-bar-toggle"></a>
+                                                        <h6 class="job-progress-bar-title">@jobSkills.Title</h6>
+                                                        <p>Nivel Competenta: @jobSkills.Level</p>
+                                                        <div class="job-progress-bar-inner"><span style="width:@jobSkills.Level%;"></span></div>
+                                                        <div class="job-progress-bar-content">@jobSkills.Description</div>
+                                                    </div>
+                                                }
+                                                }
+                                            </div>
+                                        }
+                                        else
+                                        {<p style="color: red">Scuze! Nu am gasit competente</p>}
+                                        <!--Bucla de for pentru requirements-->
+                                        <hr />
+                                        <h5>Cerinte Aditionale</h5>
+                                        @if (item.JobRequirements.Count > 0)
+                                        {
+                                            <ul class="additional-requirements clearfix">
+                                                @{int k = 1;
+
+                                                foreach (var jobRequirements in item.JobRequirements)
+                                                {
+                                                    <li>@jobRequirements.Requirement</li>
+                                                }
+                                                }
+                                            </ul>
+                                        }
+                                        else
+                                        {<p style="color: red">Scuze! Nu am gasit cerinte aditionale.</p>}
+
+                                    </div>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <a href="#" class="btn btn-default pull-left">Aplica pentru acest Job</a>
+                                        <ul class="social-icons pull-right">
+                                            <li><span>Share</span></li>
+                                            <li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+                                            <li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+                                            <li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                            }
+                            }
+                        </div>
+
+                    }
+                    else
+                    {<p style="color: red">Sorry ! No record found.</p>}
+
+
+                    <br />
+                    <hr />
+                    Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) din @Model.PageCount
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                    <hr />
+                    <br />
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<p>End of Jobs View</p>
+<!--Here ends the JobsPage content to be injected into _Layout.cshtml-->
+@*
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdWho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageSRC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titlu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WhereWhat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Solicitare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitudine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitudine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageSRC)
+                <img ="@Url.Content(item.ImageSRC)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titlu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereWhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solicitare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitudine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitudine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdJob }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdJob }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdJob })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@

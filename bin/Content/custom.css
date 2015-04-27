@@ -1,0 +1,384 @@
+﻿/*Some custom styles*/
+.highlighted {
+    background-color: #BAEAFC;
+}
+.bordered {
+    padding:3px;
+    margin:3px;
+    border:1px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#2aadde;
+    border-radius:8px;
+}
+.country-container {
+    padding:3px;
+    margin:3px;
+    border:1px;
+    border-style:solid;
+    border-width:2px;
+    border-color:rebeccapurple;
+    font-family:Calibri;
+
+}
+.country {
+    font-weight:600;
+    font-size:small;
+}
+.region {font-weight:900;
+         font-size:medium;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+ #dvMap {
+     width:1000px;
+    /*height: 800px;*/
+    float:left;
+    position:fixed;
+ }
+.MapCanvas {
+    width:1200px;
+    /*height: 800px;*/
+    float:left;
+    position:fixed;
+}
+/* Page Curl Effects
+-------------------------------------*/
+/*==================================================
+ * Effect 1
+ * This will create a standard box shadow effect with the shadow moved into the element to create a raised box look.
+ * ===============================================*/
+.effect1 {
+	-webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+}
+/*==================================================
+ * Effect 2
+ * This effect will add shadows to the bottom corners of the boxes to create a lifted corner look on the boxes.
+ * ===============================================*/
+.effect2 {
+	position: relative;
+}
+.effect2:before, .effect2:after {
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width: 300px;
+	background: #777;
+	-webkit-box-shadow: 0 15px 10px #777;
+	-moz-box-shadow: 0 15px 10px #777;
+	box-shadow: 0 15px 10px #777;
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+}
+.effect2:after {
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-o-transform: rotate(3deg);
+	-ms-transform: rotate(3deg);
+	transform: rotate(3deg);
+	right: 10px;
+	left: auto;
+}
+/*==================================================
+ * Effect 3
+ * This uses half of the effect approve and will add a lifted corner to the bottom left of the box.
+ * ===============================================*/
+.effect3 {
+	position: relative;
+}
+.effect3:before {
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width: 300px;
+	background: #777;
+	-webkit-box-shadow: 0 15px 10px #777;
+	-moz-box-shadow: 0 15px 10px #777;
+	box-shadow: 0 15px 10px #777;
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+}
+/*==================================================
+ * Effect 4
+ * Effect 4 will lift the corner on the bottom right of the box.
+ * ===============================================*/
+.effect4 {
+	position: relative;
+}
+.effect4:after {
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	right: 10px;
+	left: auto;
+	width: 50%;
+	top: 80%;
+	max-width: 300px;
+	background: #777;
+	-webkit-box-shadow: 0 15px 10px #777;
+	-moz-box-shadow: 0 15px 10px #777;
+	box-shadow: 0 15px 10px #777;
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-o-transform: rotate(3deg);
+	-ms-transform: rotate(3deg);
+	transform: rotate(3deg);
+}
+/*==================================================
+ * Effect 5
+ * This is expands on the effect 2 and will increase the angle of the shadows.
+ * ===============================================*/
+.effect5 {
+	position: relative;
+}
+.effect5:before, .effect5:after {
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 25px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width: 300px;
+	background: #777;
+	-webkit-box-shadow: 0 35px 20px #777;
+	-moz-box-shadow: 0 35px 20px #777;
+	box-shadow: 0 35px 20px #777;
+	-webkit-transform: rotate(-8deg);
+	-moz-transform: rotate(-8deg);
+	-o-transform: rotate(-8deg);
+	-ms-transform: rotate(-8deg);
+	transform: rotate(-8deg);
+}
+.effect5:after {
+	-webkit-transform: rotate(8deg);
+	-moz-transform: rotate(8deg);
+	-o-transform: rotate(8deg);
+	-ms-transform: rotate(8deg);
+	transform: rotate(8deg);
+	right: 10px;
+	left: auto;
+}
+/*==================================================
+ * Effect 6
+ * This effect will create a curved shadow at the bottom of the box.
+ * ===============================================*/
+.effect6 {
+	position: relative;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect6:before, .effect6:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	top: 50%;
+	bottom: 0;
+	left: 10px;
+	right: 10px;
+	-moz-border-radius: 100px / 10px;
+    border-radius:100px / 10px;
+}
+/*==================================================
+ * Effect 7 - curl shadow top bottom round (barrel)
+ * This effect uses the previous effect and adds another shadow to the top of the box.
+ * ===============================================*/
+.effect7 {
+	position: relative;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect7:before, .effect7:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	right: 10px;
+	-moz-border-radius: 100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect7:after {
+	right: 10px;
+	left: auto;
+	-webkit-transform: skew(8deg) rotate(3deg);
+	-moz-transform: skew(8deg) rotate(3deg);
+	-ms-transform: skew(8deg) rotate(3deg);
+	-o-transform: skew(8deg) rotate(3deg);
+	transform: skew(8deg) rotate(3deg);
+}
+/*==================================================
+ * Effect 8 - curl shadow left right round (barrel)
+ * The final effect will add rounded shadows to either side of the box.
+ * ===============================================*/
+.effect8 {
+	position: relative;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect8:before, .effect8:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	top: 10px;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	-moz-border-radius: 100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect8:after {
+	right: 10px;
+	left: auto;
+	-webkit-transform: skew(8deg) rotate(3deg);
+	-moz-transform: skew(8deg) rotate(3deg);
+	-ms-transform: skew(8deg) rotate(3deg);
+	-o-transform: skew(8deg) rotate(3deg);
+	transform: skew(8deg) rotate(3deg);
+}
+
+/*Help system*/
+.helpTrigger {
+    position: fixed;
+    top: 1.5em;
+    right: 5em;
+    height: 24px;
+    width: 24px;
+    background: url('../Assets/images/HelpClose.png') 0px 0px;
+}
+
+.closeTrigger {
+    position: fixed;
+    top: 1.5em;
+    right: 5em;
+    height: 24px;
+    width: 24px;
+    background: url('../Assets/images/HelpClose.png') 0px 24px;
+}
+
+#helpContent {
+    border: solid 1px black;
+    border-right: 3em;
+    min-height: 4em;
+    border-radius: 0.5em;
+    box-shadow: 1px 1px 15px black;
+    position: fixed;
+    top: 5em;
+    right: 5em;
+    height: 25em;
+    width: 60em;
+    overflow: auto;
+    background-color: whitesmoke;
+    padding: 1.5em;
+    z-index:9999;
+}
+
+/*Counter jobs*/
+.header-banner-box.post-job .counter-container {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+}
+
+.header-banner-box.post-job .counter {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.header-banner-box.post-job .counter-container div {
+	position: relative;
+	display: block;
+	text-align: center;
+	overflow: hidden;
+}
+
+.header-banner-box.post-job .counter-container div > span {
+	position: relative;
+	display: inline-block;
+	font-weight: bold;
+	margin-top: 10px;
+	padding: 0 10px;
+}
+
+.header-banner-box.post-job .counter-container div > span:before,
+.header-banner-box.post-job .counter-container div > span:after {
+	position: absolute;
+	display: block;
+	width: 100px;
+	height: 2px;
+	background: #dddddd;
+	top: 50%;
+	content: '';
+}
+
+.header-banner-box.post-job .counter-container div > span:before {
+	right: 100%;
+}
+
+.header-banner-box.post-job .counter-container div > span:after {
+	left: 100%;
+}
+
+.header-banner-box.post-job .counter > li {
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 28px;
+	height: 42px;
+	float: left;
+	background: url(../Assets/images/counter-bg.png) no-repeat 0 0;
+	line-height: 42px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	color: #444444;
+	margin-left: 2px;
+}
+
+.header-banner-box.post-job .counter > li.zero {
+	color: #cccccc;
+}
+
+.header-banner-box.post-job .counter > li:nth-last-child(3n) {
+	margin-left: 10px;
+}
+
+.header-banner-box.post-job .counter > li:first-child {
+	margin-left: 0;
+}

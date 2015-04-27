@@ -1,0 +1,71 @@
+﻿@*@model IEnumerable<JobShop.Jobs>*@
+
+
+@model JobShop.Models.HomePageModel
+<div class="header-banner">
+    <div class="container">
+        <div class="row">
+            @*Latest Jobs*@
+            <div class="col-sm-6">
+                <div class="header-banner-box register">
+                    <div>
+                        <h5>Pentru candidati</h5>
+                    </div>
+                    <div class="counter-container">
+                        <div>
+                            <h5>Acum sunt: </h5>
+                        </div>
+                        @if (Model.allJobs.Count() > 0)
+                        {
+                            <ul class="counter clearfix">
+                                @{
+                            string str = Model.allJobs.Count().ToString();
+                            foreach (var TheDigit in str)
+                            {
+                                <li>@TheDigit</li>}
+                                }
+                            </ul>
+                        }
+                        <div>
+                            <span>Joburi</span>
+                        </div>
+                    </div>
+                    <a class="btn btn-default" href="register.cshtml">Inregistreaza-te</a>
+                </div>
+            </div>
+            @*Latest Candidates*@
+            @*
+                <div class="col-sm-6">
+                    <div class="header-banner-box post-job">
+                        <div>
+                            <h5>Pentru angajatori</h5>
+                        </div>
+                        <div class="counter-container">
+                            <div>
+                                <h5>Acum sunt: </h5>
+                            </div>
+                            @if (Model.Count() > 0)
+                            {
+                                <ul class="counter clearfix">
+                                    @{
+
+                                string str = Model.Count().ToString();
+                                foreach (var TheDigit in str)
+                                {
+                                    <li>@TheDigit</li>}
+                                    }
+                                </ul>
+                            }
+                            <div>
+                                <span>Candidati</span>
+                            </div>
+                        </div>
+                        <img alt="" src="images/verified.png">
+                        <a class="btn btn-default btn-red" href="#">Posteaza un Job</a>
+                    </div>
+                </div>
+            *@
+        </div>
+    </div>
+</div>
+

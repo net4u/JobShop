@@ -1,0 +1,351 @@
+﻿@model JobShop.Jobs
+
+@{
+    ViewBag.Title = "Detaliile Jobului";
+}
+
+<h2>Details</h2>
+
+    <!--Job Detail-->
+<div id="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 page-sidebar">
+                <aside>
+                    <div class="widget sidebar-widget white-container candidates-single-widget">
+                        <div class="widget-content">
+                            <div id="jobs-single-page-map" class="white-container" style="position: relative; overflow: hidden;">
+                                <div class="canvas_map" style="width: 100%; height: 100%; position: relative; overflow: hidden; -webkit-transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+                                    <!-- This css is to ensure that the google map contols (zoom bar etc) show and size correctly. -->
+                                    <style>
+                                        #map_canvas img {
+                                            max-width: none;
+                                        }
+                                    </style>
+
+                                    <!-- This css is to give a nice big popup "info window" when a marker is clicked on the map -->
+                                    <style>
+                                        .infoDiv {
+                                            height: 150px;
+                                            width: 300px;
+                                            -webkit-user-select: none;
+                                            background-color: white;
+                                        }
+                                    </style>
+                                    <!-- This is the div that will contain the Google Map -->
+                                    <div id="map_canvas" style="height: 500px;"></div>  
+                                </div>
+                            </div>
+                            <h5 class="bottom-line">Job Details</h5>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>#68686</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>Australia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Industry</td>
+                                        <td>IT/Computers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type</td>
+                                        <td>Employer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role</td>
+                                        <td>Front-end Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joining Date</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Employment Status</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Monthly Salary</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h5 class="bottom-line">Preffered Candidates</h5>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Career Level</td>
+                                        <td>Entry Level</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Years of Experience</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Residence Location</td>
+                                        <td>Australia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nationality</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Degree</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </aside>
+            </div> <!-- end .page-sidebar -->
+            <div class="col-sm-8 page-content">
+                <div class="clearfix mb30 hidden-xs">
+                    <a href="#" class="btn btn-gray pull-left">Back to Listings</a>
+                    <div class="pull-right">
+                        <a href="#" class="btn btn-gray">Previous</a>
+                        <a href="#" class="btn btn-gray">Next</a>
+                    </div>
+                </div>
+                <div class="jobs-item jobs-single-item">
+                    <div class="thumb"><img src="~/Assets/Images/bus-00.png" alt=""></div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="date">27 <span>Jun</span></div>
+                    <h6 class="title"><a href="#">Front-end Developer</a></h6>
+                    <span class="meta">Envato, Sydney, AU</span>
+                    <ul class="top-btns">
+                        <li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae.</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Reiciendis laborum mollitia ad vel?</li>
+                        <li>Velit voluptates neque perspiciatis suscipit?</li>
+                        <li>Facere, sequi quo iste odio.</li>
+                        <li>A culpa libero tempora ut.</li>
+                    </ul>
+                    <div class="fitvidsjs">
+                        @*
+    
+                        *@
+                        <div class="fluid-width-video-wrapper effect7 bordered" style="width:320px; height:240px">
+    <span>Optional, video clip</span>
+    <!--Video player to consider here-->
+</div>
+                    </div>
+                    <h5>Competente Necesare</h5>
+                    <div class="progress-bar toggle" data-progress="60">
+                        <a href="#" class="progress-bar-toggle"></a>
+                        <h6 class="progress-bar-title">Web Design</h6>
+                        <div class="progress-bar-inner"><span></span></div>
+                        <div class="progress-bar-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+                        </div>
+                    </div>
+                    <div class="progress-bar toggle" data-progress="60">
+                        <a href="#" class="progress-bar-toggle"></a>
+                        <h6 class="progress-bar-title">Development</h6>
+                        <div class="progress-bar-inner"><span></span></div>
+                        <div class="progress-bar-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+                        </div>
+                    </div>
+                    <div class="progress-bar toggle" data-progress="60">
+                        <a href="#" class="progress-bar-toggle"></a>
+                        <h6 class="progress-bar-title">UI/UX</h6>
+                        <div class="progress-bar-inner"><span></span></div>
+                        <div class="progress-bar-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+                        </div>
+                    </div>
+                    <h5>Cerinte Aditionale</h5>
+                    <ul class="additional-requirements clearfix">
+                        <li>Work Permit</li>
+                        <li>5 Years Experience</li>
+                        <li>MBA</li>
+                        <li>Magento Certified</li>
+                        <li>Perfect Written &amp; Spoken English</li>
+                    </ul>
+                    <hr>
+                    <div class="clearfix">
+                        <a href="#" class="btn btn-default pull-left">Aplica pentru acest job</a>
+                        <ul class="social-icons pull-right">
+                            <li><span>Share</span></li>
+                            <li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+                            <li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+                            <li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="title-lines">
+                    <h3 class="mt0">Despre acest angajator</h3>
+                </div>
+                <div class="about-candidate-item">
+                    <div class="thumb"><img src="./job-details_files/face-9.png" alt=""></div>
+                    <h6 class="title"><a href="#">John Doe</a></h6>
+                    <span class="meta">24 Years Old - Sydney, AU</span>
+                    <ul class="social-icons clearfix">
+                        <li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+                        <li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+                        <li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+                        <li><a href="#" class="btn btn-gray fa fa-dribbble"></a></li>
+                        <li><a href="#" class="btn btn-gray fa fa-pinterest"></a></li>
+                        <li><a href="#" class="btn btn-gray fa fa-linkedin"></a></li>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li><strong>Tel:</strong> (123) 123-4567</li>
+                        <li><strong>Website:</strong> <a href="#">example.com</a></li>
+                    </ul>
+                    <a href="#" class="btn btn-default">Trimite-mi un mesaj</a>
+                </div>
+            </div> <!-- end .page-content -->
+        </div>
+    </div> <!-- end .container -->
+</div>
+<!-- end #page-content -->
+
+<div>
+    <h4>Jobs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdWho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdWho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageSRC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageSRC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titlu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titlu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhereWhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhereWhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solicitare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solicitare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Orar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitudine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitudine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitudine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitudine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdJob }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

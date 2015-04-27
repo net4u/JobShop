@@ -1,0 +1,318 @@
+﻿#header .header-banner {
+	padding: 0;
+	background: #F43A3B;
+}
+.highlighted {
+	background-color: #FFCCCC;
+}
+
+.bordered {
+    padding:3px;
+    margin:3px;
+    border:1px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#F43A3B;
+    border-radius:8px;
+}
+
+a {
+	color: #F43A3B;
+}
+
+a:hover,
+a:focus {
+	color: #F43A3B;
+}
+
+hr.primary {
+	border-top-color: #F43A3B;
+}
+
+.ui-slider .ui-slider-handle {
+	background: #F43A3B;
+}
+
+.ui-slider .ui-slider-handle:before {
+	border-color: #F43A3B;
+}
+
+.ui-slider .ui-slider-range {
+	background: #F43A3B;
+}
+
+table > thead > tr > th {
+	background: #F43A3B;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(even) > th {
+	background-color: #F43A3B;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+	background-color: #F43A3B;
+}
+
+.btn-default {
+	border-bottom-color: #F43A3B;
+	background: #F43A3B;
+	color: #ffffff;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active {
+	border-color: #986606;
+	background-color: #F43A3B;
+	color: #ffffff;
+}
+
+#header .header-top-bar a:hover {
+	color: #F43A3B;
+}
+
+#header .header-top-bar .header-login > div,
+#header .header-top-bar .header-register > div {
+	border-top-color: #F43A3B;
+}
+
+#header .header-nav-bar .primary-nav > li:hover {
+	color: #F43A3B;
+}
+
+#header .header-nav-bar .primary-nav > li.active > a {
+	border-bottom-color: #F43A3B;
+}
+
+#header .header-nav-bar .primary-nav:hover > li:hover > a,
+#header .header-nav-bar .primary-nav:hover > li.active:hover > a {
+	border-bottom-color: #F43A3B;
+}
+
+#header .header-nav-bar .primary-nav ul {
+	border-top-color: #F43A3B;
+}
+
+#header .header-nav-bar .primary-nav ul > li:hover > a,
+#header .header-nav-bar .primary-nav ul > li.hover > a,
+#header .header-nav-bar .primary-nav ul > li.active > a {
+	background: #F43A3B;
+}
+
+#header .header-map {
+	border-bottom-color: #F43A3B;
+}
+
+#header .header-search-bar .toggle:hover,
+#header .header-search-bar.active .toggle {
+	background: #F43A3B;
+}
+
+#header .header-search-bar .toggle:hover span,
+#header .header-search-bar .toggle:hover span:before,
+#header .header-search-bar .toggle:hover span:after,
+#header .header-search-bar.active .toggle span,
+#header .header-search-bar.active .toggle span:before,
+#header .header-search-bar.active .toggle span:after {
+	border-bottom-color: #F43A3B;
+}
+
+#mobile-menu-toggle {
+	background: #F43A3B;
+}
+
+#footer .footer-links a:hover {
+	color: #F43A3B;
+}
+
+#footer .footer-links a:before {
+	color: #F43A3B;
+}
+
+.widget.links-widget > ul > li > a:hover,
+.widget.links-widget > ul > li.active > a {
+	color: #F43A3B;
+}
+
+.filter-list a:hover,
+.filter-list li.active > a {
+	color: #F43A3B;
+}
+
+.filter-list li.has-submenu > a:before {
+	color: #F43A3B;
+}
+
+.country-list a:hover {
+	color: #F43A3B;
+}
+
+.jobs-filter-widget .toggle {
+	background: #F43A3B;
+}
+
+.jobs-filter-widget .toggle:after {
+	background: #F43A3B;
+}
+
+.candidates-single-widget table .stars {
+	color: #F43A3B;
+}
+
+.pricing-tables .pricing-tables-column .price {
+	color: #F43A3B;
+}
+
+.nav-tabs {
+	border-bottom-color: #F43A3B;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+	border-color: #F43A3B;
+	background-color: #F43A3B;
+}
+
+.responsive-tabs > .tab-content .tab-pane {
+	border-color: #F43A3B;
+}
+
+.responsive-tabs > .tab-content > .acc-link.active,
+.responsive-tabs > .tab-content > .acc-link.active:hover,
+.responsive-tabs > .tab-content > .acc-link.active:focus {
+	border-color: #F43A3B;
+	background-color: #F43A3B;
+}
+
+.responsive-tabs.vertical > .tab-content {
+	border-left-color: #F43A3B;
+}
+
+.responsive-tabs.vertical > .nav-tabs {
+	border-right-color: #F43A3B;
+}
+
+.progress-bar > .progress-bar-inner > span {
+	background: #F43A3B;
+}
+
+.progress-bar.style-2 > .progress-bar-inner {
+	background: #F43A3B;
+}
+
+.progress-bar.toggle > .progress-bar-toggle {
+	border-bottom-color: #F43A3B;
+	background: #F43A3B;
+}
+
+.progress-bar.toggle.active > .progress-bar-toggle,
+.progress-bar.toggle > .progress-bar-toggle:hover {
+	border-bottom-color: #986606;
+	background: #F43A3B;
+}
+
+.progress-circle .loader-spiner {
+	border-color: #F43A3B;
+}
+
+.partners-item .img .overlay {
+	background: #F43A3B;
+}
+
+.jobs-item .date {
+	background: #F43A3B;
+}
+
+.pagination > li > a:hover {
+	color: #F43A3B;
+}
+
+.ullist li.active a,
+.ullist li a:hover {
+	color: #F43A3B !important;
+}
+
+.flex-control-paging li a:hover {
+	background: #F43A3B;
+}
+
+.flex-control-paging li a.flex-active {
+	background: #F43A3B;
+}
+
+job-progress-bar > .job-progress-bar-inner {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: #e7e7e7;
+    color:black;
+}
+
+.job-progress-bar > .job-progress-bar-inner > span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 0;
+	height: 100%;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: #F43A3B;
+	-webkit-transition: width .75s ease-out;
+	-moz-transition: width .75s ease-out;
+	-o-transition: width .75s ease-out;
+	transition: width .75s ease-out;
+}
+.job-progress-bar.style-2 > .job-progress-bar-inner {
+	padding: 3px;
+	background: #F43A3B;
+}
+.job-progress-bar.style-2 > .job-progress-bar-inner > span {
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 4px;
+	-webkit-border-radius: 1px;
+	border-radius: 1px;
+	background: #ffffff;
+}
+.job-progress-bar.toggle.active > .job-progress-bar-toggle, .job-progress-bar.toggle > .job-progress-bar-toggle:hover {
+	border-bottom-color: #127499;
+	background: #F43A3B;
+
+
+@media (max-width: 991px) {
+
+	#header .header-nav-bar .primary-nav li > a,
+	#header .header-nav-bar .primary-nav ul > li > a {
+		border-bottom: 1px solid #1a1a1a;
+		background: #343434;
+	}
+
+
+	#header .header-nav-bar .primary-nav > li.active > a,
+	#header .header-nav-bar .primary-nav > li:hover > a,
+	#header .header-nav-bar .primary-nav > li.hover > a {
+		border-bottom-color: #1a1a1a;
+		background: #F43A3B;
+	}
+
+	#header .header-nav-bar .primary-nav:hover > li:hover > a,
+	#header .header-nav-bar .primary-nav:hover > li.active > a,
+	#header .header-nav-bar .primary-nav:hover > li.active:hover > a {
+		border-bottom-color: #1a1a1a;
+	}
+
+	#header .header-nav-bar .primary-nav > li.has-submenu > ul li:hover > a,
+	#header .header-nav-bar .primary-nav > li.has-submenu > ul li.hover > a {
+		background: #F43A3B;
+	}
+
+}

@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserDetails">
+    <Key>
+      <PropertyRef Name="IdDetail" />
+    </Key>
+    <Property Name="IdDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="nvarchar" MaxLength="128" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
+    <Property Name="Country" Type="int" />
+    <Property Name="Website" Type="nvarchar(max)" />
+    <Property Name="ThumbURL" Type="nvarchar(max)" />
+    <Property Name="ThumbImg" Type="image" />
+    <Property Name="Facebook" Type="nvarchar(max)" />
+    <Property Name="Twitter" Type="nvarchar(max)" />
+    <Property Name="GooglePlus" Type="nvarchar(max)" />
+    <Property Name="Dribble" Type="nvarchar(max)" />
+    <Property Name="Pinterest" Type="nvarchar(max)" />
+    <Property Name="LinkedIn" Type="nvarchar(max)" />
+    <Property Name="Favorited" Type="bit" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="BirthDate" Type="date" />
+  </EntityType>
+  <EntityType Name="CandidateEducation">
+    <Key>
+      <PropertyRef Name="Id_Edu" />
+    </Key>
+    <Property Name="Id_Edu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_CV" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+  </EntityType>
+  <EntityType Name="CandidateExperience">
+    <Key>
+      <PropertyRef Name="IdExp" />
+    </Key>
+    <Property Name="IdExp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_CV" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+  </EntityType>
+  <EntityType Name="CandidateReq">
+    <Key>
+      <PropertyRef Name="IdReq" />
+    </Key>
+    <Property Name="IdReq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_CV" Type="int" />
+    <Property Name="Requirement" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Candidates">
+    <Key>
+      <PropertyRef Name="IdCV" />
+    </Key>
+    <Property Name="IdCV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="128" />
+    <Property Name="Experienta" Type="varchar(max)" />
+    <Property Name="DateAdd" Type="date" />
+    <Property Name="ImageSRC" Type="nvarchar(max)" />
+    <Property Name="Titlu" Type="nvarchar(max)" />
+    <Property Name="WhereWhat" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Solicitare" Type="nvarchar(max)" />
+    <Property Name="Orar" Type="nvarchar(max)" />
+    <Property Name="MinSal" Type="float" />
+    <Property Name="MaxSal" Type="float" />
+    <Property Name="Localitate" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Latitudine" Type="float" />
+    <Property Name="Longitudine" Type="float" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+    <Property Name="Region" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CandidateSkills">
+    <Key>
+      <PropertyRef Name="Id_Skill" />
+    </Key>
+    <Property Name="Id_Skill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_CV" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Level" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="JobRequirements">
+    <Key>
+      <PropertyRef Name="IdReq" />
+    </Key>
+    <Property Name="IdReq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Job" Type="int" />
+    <Property Name="Requirement" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="IdJob" />
+    </Key>
+    <Property Name="IdJob" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdWho" Type="int" />
+    <Property Name="User" Type="nvarchar" MaxLength="128" />
+    <Property Name="DateAdd" Type="date" />
+    <Property Name="ImageSRC" Type="nvarchar(max)" />
+    <Property Name="Titlu" Type="nchar" MaxLength="64" />
+    <Property Name="WhereWhat" Type="nchar" MaxLength="128" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Solicitare" Type="nvarchar(max)" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+    <Property Name="Orar" Type="nvarchar" MaxLength="30" />
+    <Property Name="Localitate" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Latitudine" Type="float" />
+    <Property Name="Longitudine" Type="float" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Region" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="JobSkills">
+    <Key>
+      <PropertyRef Name="IdSkill" />
+    </Key>
+    <Property Name="IdSkill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Job" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Level" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="AspNetUserDetails_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserDetails" Type="Self.AspNetUserDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserDetails">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CandidateEducation_fk">
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CandidateEducation" Type="Self.CandidateEducation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidates">
+        <PropertyRef Name="IdCV" />
+      </Principal>
+      <Dependent Role="CandidateEducation">
+        <PropertyRef Name="Id_CV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CandidateExperience_fk">
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CandidateExperience" Type="Self.CandidateExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidates">
+        <PropertyRef Name="IdCV" />
+      </Principal>
+      <Dependent Role="CandidateExperience">
+        <PropertyRef Name="Id_CV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CandidateReq_fk">
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CandidateReq" Type="Self.CandidateReq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidates">
+        <PropertyRef Name="IdCV" />
+      </Principal>
+      <Dependent Role="CandidateReq">
+        <PropertyRef Name="Id_CV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Candidates_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Candidates">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CandidateSkills_fk">
+    <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CandidateSkills" Type="Self.CandidateSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidates">
+        <PropertyRef Name="IdCV" />
+      </Principal>
+      <Dependent Role="CandidateSkills">
+        <PropertyRef Name="Id_CV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobRequirements_fk">
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobRequirements" Type="Self.JobRequirements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="IdJob" />
+      </Principal>
+      <Dependent Role="JobRequirements">
+        <PropertyRef Name="Id_Job" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Jobs_fk">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobSkills_fk">
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobSkills" Type="Self.JobSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="IdJob" />
+      </Principal>
+      <Dependent Role="JobSkills">
+        <PropertyRef Name="Id_Job" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DistanceBetween" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="real">
+    <Parameter Name="Lat1" Type="real" Mode="In" />
+    <Parameter Name="Long1" Type="real" Mode="In" />
+    <Parameter Name="Lat2" Type="real" Mode="In" />
+    <Parameter Name="Long2" Type="real" Mode="In" />
+  </Function>
+  <Function Name="SearchByRadius" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="distance" Type="float" Mode="In" />
+    <Parameter Name="lat" Type="float" Mode="In" />
+    <Parameter Name="long" Type="float" Mode="In" />
+  </Function>
+  <Function Name="SearchByRadiusCV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="distance" Type="float" Mode="In" />
+    <Parameter Name="lat" Type="float" Mode="In" />
+    <Parameter Name="long" Type="float" Mode="In" />
+  </Function>
+  <Function Name="SearchByRadiusJobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="distance" Type="float" Mode="In" />
+    <Parameter Name="lat" Type="float" Mode="In" />
+    <Parameter Name="long" Type="float" Mode="In" />
+  </Function>
+  <EntityContainer Name="JobShopModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserDetails" EntityType="Self.AspNetUserDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateEducation" EntityType="Self.CandidateEducation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateExperience" EntityType="Self.CandidateExperience" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateReq" EntityType="Self.CandidateReq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateSkills" EntityType="Self.CandidateSkills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobRequirements" EntityType="Self.JobRequirements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobSkills" EntityType="Self.JobSkills" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="AspNetUserDetails_fk" Association="Self.AspNetUserDetails_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserDetails" EntitySet="AspNetUserDetails" />
+    </AssociationSet>
+    <AssociationSet Name="CandidateEducation_fk" Association="Self.CandidateEducation_fk">
+      <End Role="Candidates" EntitySet="Candidates" />
+      <End Role="CandidateEducation" EntitySet="CandidateEducation" />
+    </AssociationSet>
+    <AssociationSet Name="CandidateExperience_fk" Association="Self.CandidateExperience_fk">
+      <End Role="Candidates" EntitySet="Candidates" />
+      <End Role="CandidateExperience" EntitySet="CandidateExperience" />
+    </AssociationSet>
+    <AssociationSet Name="CandidateReq_fk" Association="Self.CandidateReq_fk">
+      <End Role="Candidates" EntitySet="Candidates" />
+      <End Role="CandidateReq" EntitySet="CandidateReq" />
+    </AssociationSet>
+    <AssociationSet Name="Candidates_fk" Association="Self.Candidates_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Candidates" EntitySet="Candidates" />
+    </AssociationSet>
+    <AssociationSet Name="CandidateSkills_fk" Association="Self.CandidateSkills_fk">
+      <End Role="Candidates" EntitySet="Candidates" />
+      <End Role="CandidateSkills" EntitySet="CandidateSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="JobRequirements_fk" Association="Self.JobRequirements_fk">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="JobRequirements" EntitySet="JobRequirements" />
+    </AssociationSet>
+    <AssociationSet Name="Jobs_fk" Association="Self.Jobs_fk">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="JobSkills_fk" Association="Self.JobSkills_fk">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="JobSkills" EntitySet="JobSkills" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

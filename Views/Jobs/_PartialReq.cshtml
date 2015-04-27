@@ -1,0 +1,33 @@
+﻿@model IEnumerable<JobShop.JobRequirements>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Requirement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jobs.User)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requirement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jobs.User)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdReq }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdReq }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdReq })
+        </td>
+    </tr>
+}
+
+</table>

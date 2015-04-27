@@ -1,0 +1,50 @@
+﻿<!-- Mobile Menu Toggle -->
+<a id="mobile-menu-toggle" href="#"><span></span></a>
+<!-- Primary Nav -->
+<nav>
+    <ul class="primary-nav">
+        <li class="active">
+            <!--was with has-submenu-->
+            @Html.ActionLink("Home", "Index", "Home")
+            @*<ul>
+                    <li><a href="default.apsx">Home with Boxes</a></li>
+                    <li><a href="homepage-slider.html">Home with Slider</a></li>
+                </ul>
+                <span class="submenu-arrow"></span>*@
+        </li>
+        <li class="has-submenu">
+            @Html.ActionLink("Joburi", "Index", "Jobs")
+            <ul>
+                <li>@Html.ActionLink("Job Detail", "Index", "JobDetail")</li>
+                <li>@Html.ActionLink("Skills", "Index", "JobsSkills")</li>
+                <li>@Html.ActionLink("Requirements", "Index", "JobsRequirements")</li>
+            </ul>
+            <span class="submenu-arrow"></span>
+        </li>
+        <li class="has-submenu">
+            @Html.ActionLink("Candidati", "Index", "Candidates")
+            <ul>
+                <li>@Html.ActionLink("Candidate Detail", "Details", "Candidates")</li>
+                <li>@Html.ActionLink("Skills", "Index", "CandidateSkills")</li>
+                <li>@Html.ActionLink("Requirements", "Index", "CandidateReqs")</li>
+                <li>@Html.ActionLink("Experience", "Index", "CandidateExperiences")</li>
+                <li>@Html.ActionLink("Education", "Index", "CandidateEducations")</li>
+                <li><a href="candidates.html">Listing</a></li>
+                <li><a href="candidates-sidebar.html">Listing cu Sidebar</a></li>
+                <li><a href="candidate-details.html">Detalii</a></li>
+            </ul>
+            <span class="submenu-arrow"></span>
+        </li>
+        <li class="has-submenu">
+            @Html.ActionLink("Despre Noi", "About", "Home")
+            <ul>
+                <li><a href="partners.html">Partneri</a></li>
+                <li><a href="contact-us.html">Contacti-ne</a></li>
+            </ul>
+            <span class="submenu-arrow"></span>
+        </li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li>@Html.ActionLink("Inregistrare", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        @*<li><a href="~/Views/Shared/Register.cshtml">Inregistrare</a></li>*@
+    </ul>
+</nav>
